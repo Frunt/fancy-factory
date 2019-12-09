@@ -1,0 +1,62 @@
+:root {
+    --category-product-list-load-button-background: #{$concrete};
+}
+
+.CategoryProductList {
+
+    @include after-mobile {
+        min-height: 100vh;
+    }
+
+    &-Page {
+        display: grid;
+        grid-template-columns: repeat(3, 30%);
+        grid-auto-rows: max-content;
+        grid-column-gap: 5%;
+
+        @include laptop {
+            grid-template-columns: repeat(2, 47%);
+            grid-column-gap: 6%;
+        }
+
+         @include mobile {
+             display: block;
+         }
+
+        .ProductCard {
+            margin-bottom: 12px;
+
+            @include laptop {
+                margin-bottom: 10%;
+            }
+
+            @include mobile {
+                margin-bottom: calculateRem(35px);
+            }
+        }
+    }
+
+    &-ProductsMissing {
+        padding: 1rem;
+        text-align: center;
+    }
+
+    &_isLoading {
+        opacity: 0;
+        animation: appear 100ms 200ms ease-in forwards;
+    }
+
+    &-More {
+        min-height: 3rem;
+    }
+
+    .LoadButton {
+        margin-bottom: 1rem;
+    }
+
+    .CategoryProductListPlaceholder {
+        @include mobile {
+            display: block;
+        }
+    }
+}

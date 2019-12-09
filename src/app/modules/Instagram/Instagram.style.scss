@@ -1,0 +1,66 @@
+.Instagram {
+  padding: 5% 0 7%;
+  background-color: $yellow;
+
+  @include mobile {
+    padding: 60px 0 100px;
+  }
+
+  .Instagram-Title {
+    margin: 0 20px 75px;
+    text-align: center;
+    font-size: calculateRem(32px);
+
+    @include mobile {
+      font-size: calculateRem(22px);
+    }
+  }
+
+  .slick-slider {
+    margin-left: calc((100% - var(--content-wrapper-width))/2);
+
+    @include desktop-l {
+      margin-left: 20px;
+    }
+  }
+
+  .slick-slide {
+    width: calculateRem(280px);
+    margin-right: calculateRem(70px);
+
+    @include tablet {
+      width: calculateRem(160px);
+      margin-right: calculateRem(12px);
+    }
+  }
+
+  img {
+    object-fit: cover;
+  }
+
+  .slick-arrow {
+    bottom: calc(100% + 80px);
+
+    @include tablet {
+      bottom: calc(100% + 30px);
+    }
+  }
+
+  .slick-prev {
+    left: auto;
+    right: calc(9% + 28px);
+
+    @include tablet {
+      right: auto;
+      left: 0;
+    }
+  }
+
+  .slick-next {
+    right: 9%;
+
+    @include tablet {
+      right: 20px;
+    }
+  }
+}

@@ -1,0 +1,66 @@
+.ProductGallery {
+    --slider-crumb-color: #000;
+    display: grid;
+    grid-template-columns: calculateRem(68px) 1fr;
+    grid-template-rows: repeat(6, calculateRem(81px));
+    grid-gap: calculateRem(32px);
+
+    @include tablet {
+        display: block;
+    }
+
+    @include mobile {
+        margin-bottom: calculateRem(56px);
+    }
+
+    &Image {
+        grid-column: 1/2;
+    }
+
+    &-Slider {
+        grid-column: 2/3;
+        grid-row: 1/7;
+        border: 1px solid $light-bg;
+    }
+
+    &-Image {
+        display: block;
+        height: 100%;
+    }
+
+    &-SliderImage {
+        padding-bottom: 100%;
+
+        &:not(.ProductGallery-SliderImage_isPlaceholder) {
+            background: none;
+        }
+    }
+
+    .Slider-Crumbs {
+        display: none;
+        bottom: 10px;
+
+        @include tablet {
+            display: grid;
+        }
+    }
+
+    .ProductCard-Label {
+        top: 16px;
+        right: 20px;
+    }
+
+    &-Link {
+        display: block;
+        grid-column: span 2;
+        padding-left: calculateRem(100px);
+        font-size: calculateRem(16px);
+        color: #666;
+
+        @include tablet {
+            padding-left: unset;
+            margin-top: 1rem;
+            font-size: calculateRem(14px);
+        }
+    }
+}

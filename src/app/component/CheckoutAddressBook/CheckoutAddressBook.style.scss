@@ -1,0 +1,43 @@
+.CheckoutAddressBook {
+    margin: 1rem 0;
+
+    .Checkout-Heading {
+        margin-top: unset;
+        font-size: calculateRem(24px);
+        font-weight: 400;
+        color: #1B2125;
+
+        @include mobile {
+            margin-bottom: calculateRem(25px);
+            font-size: calculateRem(18px);
+            font-weight: 600;
+        }
+    }
+
+    &-Wrapper {
+        display: flex;
+        flex-wrap: wrap;
+
+        p {
+            margin-bottom: 10px;
+            font-size: calculateRem(14px);
+        }
+
+        a {
+            text-decoration: underline;
+            color: $dark;
+        }
+    }
+
+    &-CustomAddressWrapper {
+        margin: 1rem 0;
+    }
+
+    & &-Button {
+        display: block;
+
+        &_isCustomAddressExpanded {
+            display: none;
+        }
+    }
+}

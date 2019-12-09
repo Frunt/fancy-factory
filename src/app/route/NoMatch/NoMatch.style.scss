@@ -1,0 +1,50 @@
+main.NoMatch {
+    padding: 2rem 0 4rem;
+
+    @include tablet {
+        min-height: 72.5vh;
+    }
+
+    @include mobile {
+        min-height: 60vh;
+        padding: 0 0 2rem;
+    }
+}
+
+.NoMatch {
+
+    &-Wrapper {
+        text-align: center;
+    }
+
+    h1 {
+        margin: unset;
+        font-size: 10rem;
+        font-weight: 400;
+        color: $pink;
+
+        @include mobile {
+            font-size: 7rem;
+        }
+    }
+
+    &-Subtitle {
+        font-size: 2rem;
+        font-weight: 700;
+        margin: 0;
+
+        @include mobile {
+            font-size: 1.2rem;
+        }
+    }
+
+    &-Text {
+        max-width: 700px;
+        margin: 1rem auto 2rem;
+
+        @include mobile {
+            margin: 15px auto 20px;
+            font-size: 14px;
+        }
+    }
+}

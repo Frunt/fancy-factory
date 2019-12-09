@@ -1,0 +1,356 @@
+/**
+ * ScandiPWA - Progressive Web App for Magento
+ *
+ * Copyright © Scandiweb, Inc. All rights reserved.
+ * See LICENSE for license details.
+ *
+ * @license OSL-3.0 (Open Software License ("OSL") v. 3.0)
+ * @package scandipwa/base-theme
+ * @link https://github.com/scandipwa/base-theme
+ */
+
+:root {
+    --product-configurable-attributes-direction: flex-start;
+    --product-configurable-attributes-margin: 0;
+    --product-configurable-attributes-content-padding: 0;
+
+    @include mobile {
+        --product-configurable-attributes-content-padding: .5rem .5rem 1.5rem;
+    }
+}
+
+.ProductConfigurableAttributes {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin-left: -28px;
+
+    @include mobile {
+        display: block;
+        margin-left: 0;
+        padding: 10px 20px;
+    }
+
+    &-AttributesList {
+        display: block;
+        padding: 0 0 15px;
+
+        @include mobile {
+            padding: 0;
+        }
+
+        .ProductAttributeValue {
+            display: block;
+
+            &:hover {
+                text-decoration: none;
+            }
+
+            &-Color {
+                width: 26px;
+                height: 26px;
+                border-radius: 2px;
+                border: 1px solid #C6C6C6;
+
+                &:before,
+                &:after {
+                    width: 100%;
+                    height: 100%;
+                    border: 2px solid #000;
+                    top: 0;
+                    left: 0;
+                    border-radius: 2px;
+                    transform: rotate(0);
+                }
+            }
+
+            &-String {
+                font-size: calculateRem(14px);
+                line-height: 1;
+                padding: 6px 13px;
+                display: block;
+                border: none;
+                min-width: 0;
+                text-align: left;
+                background: none;
+                height: auto;
+                margin: 0;
+                color: #1E1E1E;
+
+                @include mobile {
+                    padding: 15px 15px 15px 30px;
+                }
+
+                &_isSelected,
+                &:hover {
+                    background: #EEEEEE;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+
+    &-Expandable {
+        margin: 0 0 15px 28px;
+        flex: 0 0 auto;
+
+        @include mobile {
+            margin: 0 0 15px;
+        }
+
+        &_type {
+            &_color {
+
+                .ProductConfigurableAttributes-AttributesList {
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-items: flex-start;
+                    align-content: flex-start;
+                }
+
+                .ProductConfigurableAttributes-AttributesStatus {
+                    flex: 0 0 100%;
+                }
+
+                .ProductAttributeValue {
+                    padding: 15px 0 0 15px;
+
+                    @include mobile {
+                        margin: 0;
+                        padding: 15px 15px 0 0;
+                    }
+                }
+            }
+        }
+    }
+
+    &-ExpandableContentButton {
+        padding: 8px 80px 8px 0;
+        border-bottom: 1px solid #C6C6C6;
+        position: relative;
+
+        @include mobile {
+            border-bottom: none;
+            display: flex;
+            flex-direction: column;
+            padding-right: 0;
+        }
+
+        &:before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 50%;
+            right: 5px;
+            width: 8px;
+            height: 8px;
+            border-bottom: 1px solid #898989;
+            border-right: 1px solid #898989;
+            transform: rotate(45deg);
+            margin-top: -4px;
+            background: none;
+
+            @include mobile {
+                top: 10px;
+                margin-top: 0;
+            }
+        }
+
+        &::after {
+            display: none;
+        }
+
+        .ExpandableContent-Heading {
+            text-transform: unset;
+            font-size: 14px;
+            line-height: 1.2;
+            font-weight: 400;
+            color: $dark;
+
+            @include mobile {
+                font-size: calculateRem(18px);
+                padding-right: 40px;
+                font-weight: 500;
+            }
+        }
+
+        &.ExpandableContent-Button_isContentExpanded {
+
+            &:before {
+                transform: rotate(-135deg);
+                border-color: #FC5F9D;
+                margin-top: -2px;
+
+                @include mobile {
+                    margin-top: 4px;
+                }
+            }
+
+            .ExpandableContent-Heading {
+                color: #FC5F9D;
+            }
+        }
+    }
+
+    &-ExpandableContentSubHeading {
+        display: none;
+        &:not(:empty){
+            & ~ .ExpandableContent-Heading{
+                color: #FC5F9D;
+            }
+        }
+
+        @include mobile {
+            display: block;
+            font-size: calculateRem(16px);
+            line-height: 1.2;
+            color: #C6C6C6;
+            order: 1;
+            margin-top: 5px;
+        }
+    }
+
+    &-ExpandableContentContent {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 273px;
+        min-width: 100%;
+        background: #FCFCFC;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, .25);
+        border: 1px solid $border-light;
+        margin: -1px 0 0 0;
+        min-height: 139px;
+        visibility: hidden;
+
+        @include mobile {
+            position: relative;
+            top: 0;
+            width: auto;
+            min-width: unset;
+            background: none;
+            box-shadow: none;
+            border: none;
+            margin: 0;
+            min-height: unset;
+            display: none;
+            overflow: unset;
+        }
+
+        &_isContentExpanded {
+            visibility: visible;
+            padding: unset;
+            z-index: 1;
+
+            @include mobile {
+                display: block;
+            }
+        }
+
+        &_isContentRightAlign {
+            left: unset;
+            right: 0;
+        }
+
+        .RangeSelector {
+
+            &_isChanged {
+                --range-slider-active-color: #C6C6C6;
+            }
+
+            .input-range {
+                margin: 20px 30px 50px;
+                width: calc(100% - 60px);
+
+                &__slider {
+                    background-color: #1E1E1E;
+                    border: none;
+                }
+
+                &__label {
+                    font-family: $font-montserrat;
+                    font-size: calculateRem(14px);
+                    line-height: 1;
+                    color: #000;
+
+                    &--min,
+                    &--max {
+                        bottom: -24px;
+                    }
+
+                    &--value {
+                        top: -30px;
+                        transform: translateX(-50%);
+                    }
+
+                    &-container {
+                        left: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    &-SectionHeading {
+        font-size: 1.2em;
+        font-weight: 700;
+        line-height: 1;
+        margin: 0 0 1rem;
+
+        @include mobile {
+            display: none;
+        }
+    }
+
+    &-Placeholder {
+        animation: var(--placeholder-animation);
+        background-image: var(--placeholder-image);
+        background-size: var(--placeholder-size);
+        height: var(--option-size);
+        width: var(--option-size);
+        margin: var(--option-margin);
+    }
+
+    &-AttributesStatus {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px 5px 5px 15px;
+
+        span {
+            font-size: 8px;
+            line-height: 1;
+            color: #C6C6C6;
+        }
+
+        button {
+            font-size: 10px;
+            line-height: 1;
+            padding: 5px;
+            border: 1px solid #DDDDDD;
+        }
+    }
+}
+
+.CategoryFilterOverlay {
+
+    .ProductConfigurableAttributes-AttributesList {
+
+        .ProductAttributeValue {
+
+            @include mobile {
+                margin: 0 -20px;
+            }
+        }
+
+        &_type_color {
+
+            .ProductAttributeValue {
+
+                @include mobile {
+                    margin: unset;
+                }
+            }
+        }
+    }
+}

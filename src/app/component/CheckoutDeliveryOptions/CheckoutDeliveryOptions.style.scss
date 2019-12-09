@@ -1,0 +1,17 @@
+.CheckoutDeliveryOptions {
+    margin-bottom: 1rem;
+
+    .CheckoutPayments-Methods {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+
+        @include mobile {
+            flex-direction: column;
+        }
+    }
+
+    &-NoOptions {
+        font-size: calculateRem(14px);
+    }
+}

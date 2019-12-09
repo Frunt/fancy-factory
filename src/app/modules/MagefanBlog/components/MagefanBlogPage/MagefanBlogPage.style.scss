@@ -1,0 +1,184 @@
+main.BlogPage {
+    padding-top: unset;
+}
+
+.BlogPageHeading {
+    padding: 3% 0 193px;
+    background-color: $yellow;
+
+    @include mobile {
+        padding: calculateRem(28px) 0;
+    }
+
+    &-Wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    h1 {
+        margin: unset;
+
+        @include mobile {
+            width: 100%;
+            margin-bottom: calculateRem(18px);
+            font-size: calculateRem(24px);
+        }
+    }
+
+    .LanguageChanger-Buttons {
+        margin-left: auto;
+
+        @include mobile {
+            margin-left: unset;
+        }
+
+        span:not(.active) {
+            background-color: #FCFCFC;
+            color: rgba(30, 30, 30, .23);
+
+            &:hover {
+                background-color: $black;
+                color: $white;
+            }
+        }
+    }
+
+    &-Filters {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        margin-top: calculateRem(20px);
+        padding: calculateRem(36px) calculateRem(38px) calculateRem(20px);
+        background-color: $white;
+
+        @include tablet {
+            align-items: flex-end;
+        }
+
+        @include mobile {
+            padding: 0;
+            background: none;
+        }
+    }
+
+    &-Search {
+        width: 45%;
+
+        @include tablet {
+            width: 100%;
+        }
+
+        .Form {
+            display: flex;
+            height: calculateRem(46px);
+        }
+
+        .Field {
+            width: calc(100% - 72px);
+        }
+
+        input {
+            height: 100%;
+            border-right: unset;
+            border-radius: 2px 0 0 2px;
+
+            &:focus {
+                border-right: unset;
+            }
+        }
+
+        button {
+            width: 72px;
+            height: 100%;
+            background: $pink url(../../../../../public/assets/images/icons/search.svg) no-repeat center;
+            font-size: 0;
+        }
+    }
+
+    &-Fields {
+        width: 55%;
+        display: flex;
+    }
+
+    .Field_type_select {
+        width: 22.5%;
+        margin: unset;
+
+        @include tablet {
+            width: 45%;
+            margin-top: 1rem;
+        }
+
+        @include mobile {
+            width: 100%;
+        }
+    }
+
+    .Field-Select {
+        min-height: unset;
+        height: 30px;
+        padding: 0 calculateRem(15px) 0 0;
+        border-width: 0 0 1px 0;
+        border-radius: unset;
+        background-color: transparent;
+        font-size: calculateRem(14px);
+        color: $dark;
+
+        @include mobile {
+            border-color: #898989;
+        }
+
+        &Wrapper {
+            @include arrow-down;
+
+            &::before {
+                right: 2px;
+                border-color: #898989;
+            }
+
+            &::after {
+                display: none;
+            }
+        }
+
+        &Options {
+
+            &_isExpanded {
+                padding: calculateRem(15px) 0;
+                border-color: #898989;
+                box-shadow: 0 5.09434px 10.1887px rgba(0, 0, 0, 0.25);
+                background: #FCFCFC;
+            }
+        }
+
+        &Option {
+            padding: calculateRem(10px) calculateRem(15px);
+            font-size: calculateRem(14px);
+        }
+    }
+
+    &-ClearFilters {
+        width: 100%;
+        margin-top: calculateRem(15px);
+        text-align: right;
+
+        button {
+            color: $pink;
+        }
+    }
+}
+
+.BlogPage {
+
+    &-Wrapper {
+        transform: translateY(-150px);
+
+        @include mobile {
+            transform: unset;
+            padding-bottom: calculateRem(60px);
+        }
+    }
+}

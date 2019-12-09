@@ -1,0 +1,32 @@
+.BlogList {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    &-Page {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        margin-bottom: 5%;
+
+        @include mobile {
+            margin-bottom: unset;
+        }
+    }
+
+    &-LoadButton {
+        @include button;
+        margin-left: auto;
+
+        @include mobile {
+            margin: calculateRem(34px) auto 0;
+        }
+    }
+
+    &-ProductsMissing {
+
+        h3 {
+            margin: 0 0 calculateRem(15px);
+        }
+    }
+}

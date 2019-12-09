@@ -1,0 +1,92 @@
+.PopUp18 {
+    position: fixed;
+    background-color: rgba(0, 0, 0, .6);
+    left: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+
+    @include mobile {
+        height: calc(100% - var(--header-height));
+    }
+
+    &-Window {
+        display: flex;
+        align-items: center;
+        width: 95%;
+        max-width: calculateRem(864px);
+        height: 95%;
+        max-height: calculateRem(550px);
+        border-radius: 3px;
+        text-align: center;
+        background: #EFEFEF url(../../../public/assets/images/global/popup.jpg) no-repeat 100% 100%;
+        background-size: auto 90%;
+        overflow-y: auto;
+
+        @include mobile {
+            background-position: 50% 100%;
+            background-size: auto 30%;
+        }
+    }
+
+    &-Content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 20px;
+    }
+
+    &-Title {
+        width: calculateRem(154px);
+        height: calculateRem(154px);
+        margin: unset;
+        border: 12.6px solid $pink;
+        border-radius: 50%;
+        font-size: calculateRem(44px);
+        font-weight: 500;
+        line-height: calculateRem(125px);
+    }
+
+    &-TitleReject {
+        margin: 0 0 calculateRem(28px);
+        text-transform: uppercase;
+        font-size: calculateRem(44px);
+        font-style: italic;
+        color: $pink;
+    }
+
+    &-Text {
+        margin: calculateRem(30px) 0 calculateRem(40px);
+        font-size: calculateRem(22px);
+        font-weight: 600;
+    }
+
+    &-TextReject {
+        max-width: calculateRem(500px);
+        font-size: calculateRem(22px);
+        font-weight: 600;
+
+        strong {
+            font-weight: 800;
+        }
+    }
+
+    &-Buttons {
+
+        .Button {
+            min-width: calculateRem(118px);
+
+            &:nth-child(2) {
+                margin-left: calculateRem(15px);
+                background-color: $black;
+                color: $white;
+            }
+        }
+    }
+}

@@ -1,0 +1,85 @@
+/**
+ * ScandiPWA - Progressive Web App for Magento
+ *
+ * Copyright © Scandiweb, Inc. All rights reserved.
+ * See LICENSE for license details.
+ *
+ * @license OSL-3.0 (Open Software License ("OSL") v. 3.0)
+ * @package scandipwa/base-theme
+ * @link https://github.com/scandipwa/base-theme
+ */
+
+.CategorySort {
+
+    &-List {
+        padding: 10px 15px;
+    }
+
+    &-Heading {
+        font-size: calculateRem(20px);
+        line-height: 1.2;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1.3px;
+        color: #000;
+        height: 66px;
+        background: #eeeeee;
+        padding: 10px 66px 10px 24px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        flex: 0 0 auto;
+        order: 1;
+    }
+
+    &-Close {
+        display: block;
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        margin: -10px 0 0 0;
+
+        &:before,
+        &:after {
+            content: '';
+            display: block;
+            width: 22px;
+            height: 3px;
+            background: #1e1e1e;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -1px 0 0 -11px;
+        }
+
+        &:before {
+            transform: rotate(45deg);
+        }
+
+        &:after {
+            transform: rotate(-45deg);
+        }
+    }
+
+    &-Option {
+        font-size: calculateRem(18px);
+        line-height: calculateRem(22px);
+        font-weight: 500;
+        color: #000;
+        padding: calculateRem(10px);
+        
+        &.active {
+            background-color: #eeeeee;
+        }
+    }
+
+    &-ClearSort {
+        display: block;
+        width: 100%;
+        color: #FC5F9D;
+        text-align: right;
+        padding: 10px 15px;
+    }
+}

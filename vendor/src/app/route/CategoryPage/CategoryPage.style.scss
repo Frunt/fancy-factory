@@ -1,0 +1,107 @@
+/**
+ * ScandiPWA - Progressive Web App for Magento
+ *
+ * Copyright © Scandiweb, Inc. All rights reserved.
+ * See LICENSE for license details.
+ *
+ * @license OSL-3.0 (Open Software License ("OSL") v. 3.0)
+ * @package scandipwa/base-theme
+ * @link https://github.com/scandipwa/base-theme
+ */
+
+.CategoryPage {
+    &-Wrapper {
+        @include after-mobile {
+            display: grid;
+            padding-top: 2rem;
+        }
+
+        @include desktop {
+            grid-template-columns: minmax(200px, 300px) auto;
+            grid-column-gap: 4rem;
+        }
+
+        @include tablet {
+            grid-template-columns: minmax(150px, 200px) auto;
+            grid-column-gap: 2rem;
+        }
+
+        @include mobile {
+            padding: 0;
+        }
+    }
+
+    &-ItemsCount {
+        padding-top: .3rem;
+
+        @include mobile {
+            order: 1;
+            font-size: .9rem;
+            padding-left: 1rem;
+            text-align: center;
+            grid-column: span 2;
+            border-top: 1px solid var(--expandable-content-divider-color);
+        }
+    }
+
+    &-Filter {
+        text-transform: uppercase;
+        text-align: right;
+        grid-column: 2;
+        font-weight: 600;
+        font-size: 16px;
+        min-height: 50px;
+
+        @include after-mobile {
+            display: none;
+        }
+
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            left: calc(90% - 68px);
+            top: calc(50% - 5px);
+        }
+
+        &::before {
+            right: 70%;
+            width: 11px;
+            height: 8px;
+            background-color: var(--header-color);
+            clip-path:
+                polygon(
+                    5px 8px,
+                    11px 0,
+                    0 0,
+                    5px 8px,
+                    5px 6px,
+                    2px 1.5px,
+                    8.6px 1.5px,
+                    5px 6px
+                );
+        }
+
+        &::after {
+            height: 5px;
+            width: 1px;
+            background-color: var(--header-color);
+            transform: translate3d(5px, 6px, 0);
+        }
+    }
+
+    &-Miscellaneous {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        align-items: center;
+        padding-bottom: 1rem;
+        min-height: 56px;
+
+        > * {
+            @include mobile {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+        }
+    }
+}

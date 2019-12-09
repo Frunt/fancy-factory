@@ -1,0 +1,23 @@
+.CategoryPaginationLink {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calculateRem(40px);
+    height: calculateRem(40px);
+    border: 1px solid $border-color;
+    font-size: calculateRem(14px);
+    font-weight: 600;
+    color: $border-color;
+    transition: border-color .3s ease, color .3s ease;
+
+    &:hover,
+    &_isCurrent {
+        border-color: $black;
+        color: $black;
+        text-decoration: unset;
+    }
+
+    &_isCurrent:hover {
+        cursor: default;
+    }
+}

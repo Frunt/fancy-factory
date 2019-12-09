@@ -1,0 +1,191 @@
+.ProductReviewList {
+
+    &-Content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-bottom: 5%;
+
+        @include mobile {
+            justify-content: center;
+        }
+    }
+
+    &-Title {
+        width: 100%;
+        text-align: center;
+        font-size: calculateRem(32px);
+
+        @include mobile {
+            margin-bottom: calculateRem(20px);
+            font-size: calculateRem(22px);
+
+            & + .ProductReviewList-RatingSummaryItem {
+                text-align: center;
+            }
+        }
+    }
+
+    &-TitleNoProducts {
+        text-align: center;
+
+        @include mobile {
+            font-size: calculateRem(14px);
+        }
+    }
+
+    &-List {
+        width: 100%;
+        margin-bottom: 6%;
+
+        @include mobile {
+            margin-bottom: calculateRem(30px);
+        }
+
+        h4 {
+            margin: calculateRem(40px) 0 calculateRem(25px);
+            font-size: 1rem;
+            font-weight: 500;
+        }
+    }
+
+    &-Item {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: calculateRem(40px);
+        font-size: calculateRem(16px);
+
+        &::before {
+            content: none;
+        }
+    }
+
+    &-RatingSummaryItem {
+
+        @include mobile {
+            width: 100%;
+        }
+    }
+
+    .ProductReviewList-List .ProductReviewRating {
+        background: url(../../../public/assets/images/icons/rating_pink.svg) no-repeat;
+
+        &::before {
+            background: url(../../../public/assets/images/icons/rating_filled_pink.svg) no-repeat;
+        }
+    }
+
+    .Field_type_select {
+        width: calculateRem(225px);
+        margin-top: unset;
+
+        @include mobile {
+            margin-top: 1rem;
+        }
+    }
+
+    .Field-Select {
+        min-height: unset;
+        height: 30px;
+        padding: 0 calculateRem(15px) 0 0;
+        border-width: 0 0 1px 0;
+        border-radius: unset;
+        background-color: transparent;
+        font-size: calculateRem(14px);
+        color: $dark;
+
+        &Wrapper {
+            @include arrow-down;
+
+            &::before {
+                right: 2px;
+            }
+
+            &::after {
+                display: none;
+            }
+        }
+
+        &Options {
+
+            &_isExpanded {
+                padding: calculateRem(15px) 0;
+                border-color: $border-color;
+                box-shadow: 0 5.09434px 10.1887px rgba(0, 0, 0, 0.25);
+                background: #FCFCFC;
+            }
+        }
+
+        &Option {
+            padding: calculateRem(10px) calculateRem(15px);
+            font-size: calculateRem(14px);
+        }
+    }
+
+    &-Date {
+        color: #666;
+
+        @include mobile {
+            width: 100%;
+            margin: 4px 0 10px;
+        }
+    }
+
+    &-Author {
+        width: 100%;
+        margin: 10px 0;
+        font-weight: 500;
+    }
+
+    &-ReviewContent {
+        width: 100%;
+        font-weight: 300;
+        color: #33333A;
+
+        .TextPlaceholder {
+            display: block;
+        }
+    }
+
+    &-ReviewDetails {
+
+        &:last-child {
+            margin-bottom: unset;
+        }
+    }
+}
+
+.ReviewPagination {
+    display: flex;
+    align-items: center;
+
+    @include mobile {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    &-Qty {
+        margin-right: calculateRem(23px);
+        text-transform: uppercase;
+        font-size: calculateRem(14px);
+        font-weight: 600;
+        letter-spacing: .5px;
+        color: #33333A;
+        opacity: .5;
+    }
+
+    &-Buttons {
+        display: flex;
+
+        & > *:not(:last-child) {
+            margin-right: 5px;
+
+            @include mobile {
+                margin-right: calculateRem(24px);
+            }
+        }
+    }
+}

@@ -1,0 +1,267 @@
+/**
+ * ScandiPWA - Progressive Web App for Magento
+ *
+ * Copyright © Scandiweb, Inc. All rights reserved.
+ * See LICENSE for license details.
+ *
+ * @license OSL-3.0 (Open Software License ("OSL") v. 3.0)
+ * @package scandipwa/base-theme
+ * @link https://github.com/scandipwa/base-theme
+ */
+
+:root {
+    --checkbox-label-color: #0a0a0a;
+    --my-account-input-label-color: rgba(10, 10, 10, .59);
+}
+
+.MyAccountOverlay {
+    max-width: calculateRem(784px);
+    border: 1px solid #C6C6C6;
+    margin: {
+        top: calculateRem(76px);
+        bottom: calculateRem(200px);
+        left: auto;
+        right: auto;
+    };
+    @include mobile {
+        margin: 0 calculateRem(-15px);
+        border: 0;
+    }
+    .Form {
+        @include mobile {
+            padding-top: 15px;
+        }
+    }
+
+    &-Heading {
+        font-size: 18px;
+        font-weight: bold;
+        padding: 0 1rem 1rem;
+        @include mobile {
+            display: none;
+        }
+    }
+
+    &-Notification {
+        background-color: $primary-light-color;
+        padding: 2rem;
+    }
+
+    &-Navigation {
+        li {
+            margin: 0;
+            padding: 0;
+
+            &::before {
+                content: none;
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            a {
+                display: block;
+            }
+        }
+
+        a,
+        button {
+            width: 100%;
+            text-align: left;
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+
+            &:hover {
+                background-color: var(--color-cart-light);
+                text-decoration: none;
+            }
+
+            &:focus {
+                text-decoration: none;
+            }
+
+            @include after-mobile {
+                padding: .5rem;
+            }
+        }
+        @include after-mobile {
+            padding: .5rem;
+        }
+    }
+
+    &-Action {
+        padding: calculateRem(57px) calculateRem(118px) calculateRem(52px);
+        @include mobile {
+            padding: .5rem;
+        }
+        .checkbox_row {
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+
+            button {
+                color: #878786;
+            }
+        }
+    }
+
+    &-Additional {
+        display: flex;
+
+        .Button {
+            flex: 1 1 50%;
+            display: block;
+            min-width: 0;
+            border-radius: 0;
+            border-bottom: 1px solid #DDDDDD;
+            font-size: 1rem;
+            line-height: 1.2;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: none;
+            background-color: #EEEEEE;
+            color: #1E1E1E;
+            @include mobile {
+                font-size: 0.66rem;
+            }
+            &:not(:first-child) {
+                border-left: 1px solid #dddddd;
+            }
+
+            &:not([disabled]):hover {
+                background: #EEEEEE;
+                border-color: #DDDDDD;
+            }
+
+            &:disabled {
+                background-color: #fff;
+                border-bottom-color: transparent;
+                color: #1E1E1E;
+                opacity: 1;
+            }
+        }
+
+        &_state_forgotPassword {
+            justify-content: space-between;
+            margin-top: calculateRem(40px);
+            padding: calculateRem(24px) 0;
+            border-top: 1px solid rgb(244, 244, 244);
+
+            @include mobile {
+                display: block;
+                text-align: center;
+
+                & > *:not(:last-child) {
+                    margin-bottom: 1rem;
+                }
+            }
+
+            h4 {
+                margin-bottom: 8px;
+                font-size: calculateRem(14px);
+                font-weight: 400;
+                color: #878786;
+            }
+
+            .Button {
+                height: 40px;
+                padding: 0 20px;
+                border-radius: 2px;
+                border-color: $border-color;
+                background-color: $white;
+                text-transform: uppercase;
+                font-size: 12px;
+                font-weight: 600;
+
+                @include mobile {
+                    margin: 0 auto;
+                }
+
+                &:not(:first-child) {
+                    border-color: $border-color;
+                }
+            }
+        }
+    }
+
+    &-Buttons {
+        margin-top: calculateRem(30px);
+        text-align: center;
+    }
+
+    &-BottomBtns {
+        text-align: center;
+        margin: calculateRem(40px) auto 0;
+        padding: calculateRem(24px) 0;
+        border-top: 1px solid #F4F4F4;
+        font-size: calculateRem(14px);
+        line-height: calculateRem(17px);
+        width: 100%;
+        color: #878786;
+        @include mobile {
+            font-size: 0.66rem;
+        }
+
+        span {
+            margin-right: 13px;
+        }
+
+        .Button {
+            height: 40px;
+            width: 100%;
+            max-width: 15rem;
+            padding: 0 calculateRem(20px);
+            font-size: calculateRem(12px);
+            @include mobile {
+                padding: 0;
+                width: 60%;
+                min-width: 0;
+            }
+        }
+    }
+
+    &-Button {
+        &_likeLink {
+            font-size: .95rem;
+            margin-top: 1.2rem;
+        }
+    }
+
+    &-Checkbox {
+        display: flex;
+        flex-direction: row-reverse;
+        right: 14px;
+        justify-content: flex-end;
+        align-items: center;
+        margin-bottom: 2rem;
+        margin-top: .9rem;
+
+        > label:first-of-type {
+            color: var(--checkbox-label-color);
+            font-size: .8rem;
+            font-weight: 500;
+            padding-bottom: 0;
+            margin-left: .8rem;
+        }
+
+        > label:last-of-type {
+            width: 1.1rem;
+            height: 1.1rem;
+
+            &::after {
+                left: .1rem;
+                top: .4rem;
+                width: .15rem;
+                height: .15rem;
+            }
+        }
+
+        input {
+            position: relative;
+            width: 20px;
+            height: 20px;
+            left: 20px;
+        }
+    }
+}

@@ -1,0 +1,39 @@
+.AdditionalTypeProducts {
+  padding: 6% 0 8%;
+
+  @include mobile {
+    padding: calculateRem(40px) 0 calculateRem(60px);
+  }
+
+  &-Wrapper {
+    @include laptop {
+      padding: unset;
+    }
+  }
+
+  &-new,
+  &-sale {
+    background: url(../../../public/assets/images/icons/logo_bg.svg) no-repeat 0 100%, url(../../../public/assets/images/icons/logo_bg_vertical.svg) no-repeat 0 0, linear-gradient(132.15deg, #D4DBDC 7.5%, #A3B4AC 87.87%);
+  }
+
+  .AdditionalTypeProducts-Label {
+    margin: 0 0 5%;
+    text-align: center;
+
+    @include mobile {
+      margin-bottom: calculateRem(30px);
+      font-size: calculateRem(22px);
+    }
+  }
+
+  &-Items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 23%);
+    grid-gap: 2.6%;
+
+    @include laptop {
+      @include scroll_horizontal;
+      padding: 0 20px;
+    }
+  }
+}

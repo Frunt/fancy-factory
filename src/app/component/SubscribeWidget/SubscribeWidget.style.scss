@@ -1,0 +1,108 @@
+.Subscribe {
+    background-color: $pink;
+    padding: calculateRem(65px) 0;
+    color: #fff;
+
+    @include mobile {
+        padding: calculateRem(94px) 0 calculateRem(124px);
+    }
+
+    .ContentWrapper {
+        display: flex;
+        align-items: center;
+
+        @include tablet {
+            display: block;
+        }
+    }
+
+    &-Caption {
+        flex: 1 1 50%;
+        text-align: center;
+        padding-right: 5%;
+
+        @include laptop {
+            padding-right: unset;
+        }
+
+        @include tablet {
+            margin-bottom: calculateRem(30px);
+        }
+
+        h2 {
+            margin: 0 0 calculateRem(15px);
+
+            @include mobile {
+                font-size: calculateRem(32px);
+            }
+        }
+
+        p {
+            width: 85%;
+            margin: 0 auto;
+            font-size: calculateRem(16px);
+            font-weight: 500;
+
+            @include mobile {
+                width: 100%;
+                font-size: calculateRem(14px);
+            }
+        }
+    }
+
+    .Form {
+        flex: 1 1 50%;
+        padding-left: 5%;
+        display: flex;
+        justify-content: stretch;
+        align-items: center;
+
+        @include tablet {
+            padding-left: unset;
+        }
+
+        @include mobile {
+            display: block;
+        }
+
+        .Field {
+            width: 100%;
+            margin-top: 0;
+
+            @include mobile {
+                margin-bottom: calculateRem(16px);
+            }
+        }
+
+        input {
+            height: calculateRem(52px);
+            border-radius: 2px 0 0 2px;
+            border-right: none;
+            font-weight: 500;
+        }
+    }
+
+    &-Button {
+        @include button;
+        width: calculateRem(213px);
+        height: calculateRem(52px);
+        background-color: #000;
+        color: $pink;
+        border-radius: 0 2px 2px 0;
+        flex: 0 0 auto;
+        min-width: unset;
+    }
+
+    .Field-Message {
+        position: absolute;
+        bottom: -17px;
+        left: 0;
+        color: $black;
+
+        @include mobile {
+            position: unset;
+            bottom: unset;
+            left: unset;
+        }
+    }
+}

@@ -1,0 +1,236 @@
+/**
+ * ScandiPWA - Progressive Web App for Magento
+ *
+ * Copyright © Scandiweb, Inc. All rights reserved.
+ * See LICENSE for license details.
+ *
+ * @license OSL-3.0 (Open Software License ("OSL") v. 3.0)
+ * @package scandipwa/base-theme
+ * @link https://github.com/scandipwa/base-theme
+ */
+
+:root {
+    --footer-height: 538px;
+}
+
+.Footer {
+    height: var(--footer-height);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    background: $black;
+    color: $white;
+
+    @include tablet {
+        height: auto;
+        display: block;
+    }
+
+    &-Wrapper {
+        @include content-wrapper-lg;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+
+    &-Main {
+        flex-shrink: 1;
+        flex-grow: 1;
+        flex-basis: auto;
+        padding: calculateRem(100px) 0 calculateRem(50px);
+
+        @include tablet {
+            padding: calculateRem(26px) 0 calculateRem(36px);
+        }
+
+        .Footer-Wrapper {
+            @include tablet {
+                display: flex;
+                align-items: flex-end;
+            }
+        }
+    }
+
+    &-Bottom {
+        flex-shrink: 0;
+        flex-grow: 0;
+        flex-basis: 90px;
+        border-top: 1px solid #898989;
+        display: flex;
+        align-items: center;
+        padding: calculateRem(10px) 0;
+
+        @include tablet {
+            height: 50px;
+        }
+
+        .Footer-Wrapper {
+            display: grid;
+            grid-column-gap: 30px;
+            grid-template-columns: 1fr 1fr 1fr;
+            
+            @include tablet {
+                display: block;
+                text-align: center;
+            }
+        }
+    }
+
+    &-Paylist {
+        display: flex;
+        align-items: center;
+        opacity: .5;
+        justify-content: center;
+
+        @include tablet {
+            justify-content: flex-end;
+        }
+
+        img {
+            width: auto;
+            margin: 0 25px;
+
+            @include tablet {
+                width: auto;
+                height: 10px;
+                margin: 0 0 0 10px;
+
+                &:first-child {
+                    margin: 0;
+                }
+            }
+        }
+    }
+
+    &-Link,
+    &-Copyright {
+        font-size: 11px;
+        font-weight: 300;
+        color: inherit;
+
+        &:not(:last-of-type) {
+            &::after {
+                content: '|';
+                margin-left: 1rem;
+            }
+        }
+    }
+
+    &-Copyright {
+        display: block;
+        font-size: calculateRem(14px);
+        font-weight: 500;
+        color: rgba(#fff, .54);
+
+        @include tablet {
+            font-size: calculateRem(10px);
+        }
+    }
+
+    &-Logo {
+        width: 100%;
+        max-width: calculateRem(144px);
+        display: block;
+        margin-right: calculateRem(30px);
+
+        @include tablet {
+            max-width: 82px;
+            margin-right: 5px;
+        }
+    }
+
+    .LanguageChanger {
+        font-size: calculateRem(14px);
+        line-height: calculateRem(17px);
+        text-transform: capitalize;
+        display: flex;
+        justify-content: flex-end;
+
+        span {
+            cursor: pointer;
+            margin-left: calculateRem(24px);
+            display: flex;
+            align-items: center;
+
+            &:first-child {
+                margin-left: 0;
+            }
+
+            &.active {
+                color: #fff;
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.footer-nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-column-gap: 30px;
+
+    @include tablet {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    &_title {
+        font-size: calculateRem(14px);
+        line-height: calculateRem(17px);
+        font-weight: 500;
+        text-transform: uppercase;
+        margin-bottom: 28px;
+    }
+
+    &_list {
+        margin-bottom: calculateRem(27px);
+    }
+
+    &_list-item {
+        font-size: calculateRem(14px);
+        line-height: calculateRem(17px);
+        font-weight: 500;
+        margin-bottom: calculateRem(15px);
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        a {
+            color: rgba(#fff, .54);
+        }
+    }
+
+    &_social {
+        display: flex;
+
+        a {
+            margin-right: calculateRem(24px);
+            font-size: 0;
+            line-height: 0;
+            display: flex;
+            align-items: center;
+
+            &:before {
+                content: '';
+                display: block;
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+                width: calculateRem(20px);
+                height: calculateRem(20px);
+            }
+
+            &.insta:before {
+                background-image: url(/assets/images/icons/insta.svg);
+            }
+
+            &.fb:before {
+                background-image: url(/assets/images/icons/fb.svg);
+            }
+
+            &.consult:before {
+                background-image: url(/assets/images/icons/consult.svg);
+            }
+        }
+    }
+}

@@ -1,0 +1,83 @@
+.CmsPage {
+
+    &_isBreadcrumbsHidden {
+        margin-top: var(--header-height);
+
+        @include tablet {
+            padding-top: unset;
+        }
+    }
+
+    &-Wrapper {
+        grid-template-columns: auto;
+        padding: {
+            left: 20px;
+            right: 20px;
+        };
+        margin: {
+            left: auto;
+            right: auto;
+        };
+
+        &_page_width {
+
+            &_default {
+                max-width: var(--content-wrapper-width);
+                padding-bottom: calculateRem(120px);
+
+                @include mobile {
+                    padding-bottom: calculateRem(70px);
+                }
+
+                & > * {
+                    max-width: calculateRem(960px);
+                }
+
+                .CmsPage-Heading {
+                    margin-top: unset;
+
+                    @include mobile {
+                        padding-top: calculateRem(28px);
+                    }
+                }
+            }
+
+            &_full {
+                max-width: 100%;
+                padding: {
+                    left: 0;
+                    right: 0;
+                };
+            }
+        }
+    }
+
+    &-Heading {
+        margin-bottom: 1.5rem;
+    }
+
+    &-SectionPlaceholder {
+        background-image: var(--placeholder-image);
+        background-size: var(--placeholder-size);
+        animation: var(--placeholder-animation);
+        margin: 0 0 10px;
+        padding-bottom: 30%;
+
+        @include mobile {
+            padding-bottom: 60%;
+        }
+
+        &:first-child {
+            padding-bottom: 40%;
+
+            @include mobile {
+                padding-bottom: 100%;
+            }
+        }
+    }
+
+    .TextPlaceholder {
+        margin-bottom: 1.8rem;
+        display: block;
+    }
+}

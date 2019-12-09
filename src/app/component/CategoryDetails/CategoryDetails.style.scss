@@ -1,0 +1,33 @@
+.CategoryDetails {
+    margin-bottom: calculateRem(17px);
+
+    @include mobile {
+        margin-top: 1rem;
+    }
+
+    &-Picture {
+        mix-blend-mode: multiply;
+        height: 100%;
+        background: none;
+    }
+
+    &-Heading {
+        font-size: calculateRem(24px);
+        line-height: calculateRem(30px);
+        font-weight: 600;
+        margin: 0 0 10px;
+        text-transform: unset;
+    }
+
+    &-Description {
+
+        p:last-child {
+            margin-bottom: unset;
+        }
+    }
+
+    p {
+        font-size: calculateRem(14px);
+        line-height: calculateRem(17px);
+    }
+}

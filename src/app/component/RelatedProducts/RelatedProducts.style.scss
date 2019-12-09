@@ -1,0 +1,34 @@
+.RelatedProducts {
+    padding: 5% 0 4%;
+
+    @include mobile {
+        padding: calculateRem(48px) 0 calculateRem(53px);
+    }
+
+    &-Wrapper {
+        @include laptop {
+            padding: unset;
+        }
+    }
+
+    &-Label {
+        margin: 0 0 7%;
+        text-align: center;
+
+        @include mobile {
+            font-size: calculateRem(22px);
+        }
+    }
+
+    &-List {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 23%);
+        grid-gap: 2.6%;
+
+        @include laptop {
+
+            @include scroll_horizontal;
+            padding: 0 20px;
+        }
+    }
+}

@@ -1,0 +1,27 @@
+.CategoryPagination {
+
+    @include mobile {
+        width: 100%;
+    }
+
+    &-List {
+        display: flex;
+        justify-content: center;
+    }
+
+    &-ListItem {
+        margin: 0 calculateRem(8px) 0 0;
+
+        @include mobile {
+            margin-right: calculateRem(20px);
+        }
+
+        &:last-child {
+            margin: unset;
+        }
+
+        &::before {
+            content: '';
+        }
+    }
+}

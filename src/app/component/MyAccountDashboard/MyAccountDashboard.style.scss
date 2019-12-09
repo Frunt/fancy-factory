@@ -1,0 +1,29 @@
+.MyAccountDashboard {
+
+    &-CustomerData {
+        max-width: calculateRem(442px);
+
+        @include tablet {
+            max-width: unset;
+        }
+    }
+
+    .FieldForm-Fields {
+        margin-bottom: 5px;
+    }
+
+    .Field_type_checkbox {
+        margin: 1rem 0 .5rem;
+
+        label {
+            cursor: pointer;
+        }
+    }
+
+    .Button {
+        display: block;
+        margin: calculateRem(40px) auto 0;
+        padding-top: calculateRem(18px);
+        padding-bottom: calculateRem(18px);
+    }
+}

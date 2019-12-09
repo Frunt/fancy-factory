@@ -1,0 +1,54 @@
+.MyAccount {
+    padding: calculateRem(47px) 0 14%;
+
+    @include mobile {
+        padding: calculateRem(30px) 0 calculateRem(88px);
+    }
+
+    &-Wrapper {
+        display: grid;
+        grid-template-columns: 25% 1fr;
+        grid-template-rows: auto 1fr;
+        grid-row-gap: 0;
+        max-width: var(--content-wrapper-lg-width);
+
+        @include tablet {
+            display: block;
+        }
+    }
+
+    &-TabContent {
+        grid-row: span 2;
+        padding-left: 11%;
+
+        @include laptop {
+            padding-left: 5%;
+        }
+
+        @include tablet {
+            padding-left: unset;
+        }
+    }
+
+    &-Heading {
+        margin: 1rem 0 calculateRem(40px);
+        font-size: calculateRem(26px);
+        font-weight: 500;
+
+        @include mobile {
+            margin: 0 0 calculateRem(40px);
+        }
+    }
+
+    &-PrevButton {
+        @include tablet {
+            margin-bottom: calculateRem(38px);
+        }
+    }
+
+    .ExpandableContent-Content {
+        max-height: 100%;
+        padding-bottom: 1rem;
+        opacity: 1;
+    }
+}

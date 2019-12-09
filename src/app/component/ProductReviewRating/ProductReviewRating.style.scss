@@ -1,0 +1,33 @@
+.ProductReviewRating {
+    --percentage: 0%;
+    position: relative;
+    width: 134px;
+    height: 24px;
+    margin-right: .5rem;
+    display: inline-block;
+    vertical-align: middle;
+    background: url(../../../public/assets/images/icons/rating.svg) no-repeat;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: var(--percentage);
+        height: 100%;
+        background: url(../../../public/assets/images/icons/rating_filled.svg) no-repeat;
+    }
+
+    &_isLoading {
+        &::before {
+            background-image: var(--placeholder-image);
+            background-size: var(--placeholder-size);
+            animation: var(--placeholder-animation);
+        }
+    }
+
+    & + span {
+        font-size: 16px;
+        color: #666;
+    }
+}

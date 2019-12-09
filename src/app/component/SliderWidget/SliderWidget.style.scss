@@ -1,0 +1,164 @@
+.SliderWidget {
+    height: 100%;
+    font-size: 0;
+
+    .slick-slider,
+    .slick-slide,
+    .slick-list,
+    .slick-track {
+        height: 100%;
+    }
+
+    .slick-slide > div {
+        height: 100%;
+    }
+
+    .slick-arrow {
+        top: 50%;
+        margin-top: -10px;
+    }
+
+    &-Figure {
+        height: 100%;
+    }
+
+    &-Figcaption {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        padding: 0 calculateRem(30px) 0 calculateRem(110px);
+        color: #fff;
+        width: 70%;
+
+        @include mobile {
+            padding: 0 0 0 calculateRem(47px);
+        }
+
+        h2 {
+            font-size: calculateRem(24px);
+            line-height: calculateRem(29px);
+            font-weight: 600;
+            margin: {
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: calculateRem(35px);
+            };
+
+            @include mobile {
+                font-size: calculateRem(16px);
+                line-height: calculateRem(20px);
+                margin-bottom: calculateRem(18px);
+            }
+        }
+
+        p {
+            font-size: calculateRem(46px);
+            line-height: 1.2;
+            font-weight: 800;
+            margin: {
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: calculateRem(35px);
+            };
+
+            @include mobile {
+                font-size: calculateRem(22px);
+                margin-bottom: calculateRem(28px);
+            }
+        }
+    }
+
+    .Image {
+        height: 100%;
+    }
+
+    &-FigureImage {
+        display: block;
+
+        &_type {
+
+            &_bg.Image {
+
+                img {
+                    object-fit: cover;
+                }
+            }
+
+            &_prod.Image {
+                width: 20%;
+                height: 75%;
+                position: absolute;
+                top: 50%;
+                right: 10%;
+                transform: translateY(-50%);
+
+                img {
+                    object-fit: contain;
+                }
+            }
+        }
+
+        img {
+            position: unset;
+
+            @include mobile {
+                object-position: center;
+            }
+        }
+    }
+
+    &-Button {
+        @include button;
+        background-color: $pink;
+        font-size: calculateRem(18px);
+        font-weight: 800;
+        color: #fff;
+        letter-spacing: unset;
+
+        @include mobile {
+            font-size: calculateRem(12px);
+            line-height: calculateRem(15px);
+            padding: 8px 15px;
+            min-width: unset;
+        }
+
+        &:hover {
+            background-color: $pink;
+            color: #fff;
+        }
+    }
+}
+
+.TopScreen {
+
+    .slick-arrow {
+        border-color: #fff;
+    }
+
+    .slick-prev {
+        left: 28px;
+
+        @include mobile {
+            left: 10px;
+        }
+    }
+
+    .slick-next {
+        right: 28px;
+
+        @include mobile {
+            right: 10px;
+        }
+    }
+
+    .SliderWidget-FigureImage_type_bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}

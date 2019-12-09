@@ -1,0 +1,132 @@
+.ProductPage {
+    padding-top: unset;
+
+    &-Wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 2rem;
+        grid-template-rows: min-content min-content;
+        margin-top: calculateRem(20px);
+        padding-bottom: 9%;
+
+        @include mobile {
+            display: block;
+        }
+    }
+
+    .top_baner {
+
+        p {
+            margin-bottom: unset;
+        }
+
+        .Image {
+            padding-bottom: 28.5%;
+            @include mobile {
+                min-height: calculateRem(400px);
+            }
+            img {
+                width: auto !important;
+            }
+        }
+
+        h1 {
+            @include content-wrapper;
+            width: unset;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 5%;
+            font-size: calculateRem(63px);
+            font-weight: 600;
+            line-height: 1.1;
+            color: $white;
+
+            @include laptop-l {
+                font-size: calculateRem(50px);
+            }
+
+            @include mobile {
+                left: 0;
+                transform: unset;
+                font-size: calculateRem(30px);
+            }
+
+            strong {
+                font-weight: 300;
+                color: $pink;
+                letter-spacing: 1px;
+            }
+        }
+    }
+
+    .top_description {
+        @include content-wrapper;
+        margin-top: 6%;
+        margin-bottom: 7%;
+
+        @include tablet {
+            margin-top: calculateRem(60px);
+            margin-bottom: calculateRem(20px);
+        }
+
+        ul {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        li {
+            width: 30%;
+            margin-bottom: unset;
+
+            @include tablet {
+                width: 100%;
+                margin-bottom: calculateRem(40px);
+            }
+        }
+
+        h3 {
+            margin: 0 0 calculateRem(20px);
+            padding-bottom: calculateRem(20px);
+            color: $dark;
+
+            @include tablet {
+                margin-bottom: calculateRem(12px);
+                padding-bottom: calculateRem(10px);
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: calculateRem(210px);
+                height: 4px;
+                background-color: $yellow;
+
+                @include tablet {
+                    width: calculateRem(175px);
+                }
+            }
+        }
+
+        p {
+            margin-bottom: unset;
+            font-size: calculateRem(14px);
+            font-weight: 300;
+            line-height: 1.7;
+        };
+    }
+
+    .RelatedProducts {
+
+        &.upsell {
+            background: $yellow;
+        }
+
+        &.related {
+            background: linear-gradient(146deg, #D4DBDC 7.5%, #A3B4AC 87.87%);
+        }
+    }
+}

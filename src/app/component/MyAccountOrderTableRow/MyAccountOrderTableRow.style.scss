@@ -1,0 +1,156 @@
+.MyAccountOrderTableRow {
+    padding: calculateRem(22px) 0 calculateRem(33px);
+    border-bottom: 1px solid #c4c4c4;
+
+    &:last-child {
+        border-bottom: unset;
+    }
+
+    &-Heading {
+        font-size: calculateRem(16px);
+        line-height: calculateRem(18px);
+        font-weight: 500;
+        letter-spacing: 1px;
+        color: #FC5F9D;
+        padding: 0 0 calculateRem(22px);
+        border-bottom: 1px solid #C4C4C4;
+        margin-bottom: calculateRem(30px);
+    }
+
+    &-Info {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: calculateRem(40px);
+
+        @include mobile-s {
+            flex-wrap: wrap;
+            margin-bottom: unset;
+
+            & > * {
+                margin-bottom: calculateRem(20px);
+            }
+        }
+    }
+
+    &-Label {
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 800;
+
+        @include mobile-s {
+            width: 100%;
+        }
+
+        &_status_Pending {
+            color: $pink;
+        }
+
+        &_status_Complete {
+            color: $yellow;
+        }
+
+        &_status_On_Hold {
+            color: $light-text;
+        }
+
+        &_status_Processing {
+            color: $red;
+        }
+    }
+
+    &-InfoItem {
+        font-size: calculateRem(16px);
+        color: $dark;
+
+        h5 {
+            margin-bottom: calculateRem(10px);
+        }
+    }
+
+    &-Content {
+        display: flex;
+
+        @include mobile {
+            flex-wrap: wrap;
+        }
+
+        .MyAccountMyWishlist-Products {
+            display: flex;
+            flex-wrap: wrap;
+            width: calc(100% - 286px);
+
+            @include mobile {
+                width: 100%;
+            }
+
+            @include mobile-s {
+                justify-content: space-between;
+            }
+        }
+
+        .ProductCard {
+            min-width: unset;
+            width: 32%;
+            margin-right: 2%;
+            margin-bottom: 2%;
+            cursor: pointer;
+
+            @include mobile-s {
+                width: 49%;
+                margin-right: unset;
+                padding: calculateRem(15px) calculateRem(8px);
+            }
+
+            &:nth-child(3n) {
+                margin-right: unset;
+            }
+        }
+    }
+
+    &-Buttons {
+        width: calculateRem(256px);
+        margin-left: calculateRem(20px);
+
+        @include mobile {
+            margin: calculateRem(25px) auto 0;
+            text-align: center;
+        }
+
+        & > * {
+            width: 100%;
+            margin-bottom: 8px;
+        }
+
+        .Button {
+            min-width: unset;
+            padding: calculateRem(18px) calculateRem(5px);
+
+            @include mobile {
+                padding: calculateRem(15px) calculateRem(5px);
+            }
+        }
+    }
+
+    &-Status {
+        @include button;
+        cursor: default;
+        min-width: unset;
+
+        &_status_Pending {
+            background: $pink;
+        }
+
+        &_status_Complete {
+            background: $yellow;
+        }
+
+        &_status_On_Hold {
+            background: $light-text;
+        }
+
+        &_status_Processing {
+            background: $red;
+        }
+    }
+}

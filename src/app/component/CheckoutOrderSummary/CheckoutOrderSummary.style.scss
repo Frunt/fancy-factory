@@ -1,0 +1,211 @@
+.CheckoutOrderSummary {
+    border-left: 1px solid $border-color;
+
+    @include tablet {
+        margin-top: 3rem;
+        border-left: unset;
+        border-top: 1px solid $border-color;
+    }
+
+    @include mobile {
+        margin-top: calculateRem(30px);
+    }
+
+    & > * {
+        padding-left: calculateRem(50px);
+        padding-right: calculateRem(50px);
+        border-bottom: 1px solid $border-color;
+
+        &:last-child {
+            border-bottom: unset;
+        }
+    }
+
+    &-Header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin: unset;
+        height: calculateRem(120px);
+        padding-bottom: calculateRem(25px);
+        font-weight: 400;
+
+        @include tablet {
+            height: unset;
+            padding-top: calculateRem(25px);
+        }
+
+        @include mobile {
+            display: none;
+        }
+    }
+
+    &-ItemsInCart {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 24px;
+        height: 24px;
+        margin: unset;
+        border-radius: 50%;
+        background: $red;
+        font-size: 14px;
+        font-weight: 500;
+        color: $white;
+    }
+
+    &-OrderItems {
+        padding-top: calculateRem(25px);
+        padding-bottom: calculateRem(25px);
+        h3 {
+            text-align: left;
+        }
+
+        @include mobile {
+            display: none;
+        }
+    }
+
+    &-CartItemList {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .CartItem {
+        margin-bottom: 15px;
+        padding: unset;
+
+        &:last-child {
+            margin-bottom: unset;
+        }
+
+        &-Link {
+            width: 100%;
+        }
+
+        &-Description {
+            padding-left: 20px;
+        }
+
+        &-Heading {
+            margin-bottom: 10px;
+            font-size: 1rem;
+            font-weight: 400;
+            color: $dark;
+        }
+
+        &-PriceTotal {
+            flex: unset;
+            width: unset;
+            margin: unset;
+            padding: unset;
+            text-align: left;
+            font-size: calculateRem(17px);
+            font-weight: 600;
+            color: $dark;
+        }
+    }
+
+    .ExpandableContent {
+
+        @include mobile {
+            padding: unset;
+        }
+    }
+
+    .ExpandableContent-Button {
+        font-size: calculateRem(14px);
+        color: #1B2125;
+        @include arrow-down;
+
+        &::after {
+            display: none;
+        }
+
+        &_isContentExpanded::before {
+            transform: rotate(-135deg);
+        }
+    }
+
+    .CartPage-DiscountCoupon {
+        padding-top: 15px;
+
+        .CartCoupon-Input {
+            width: calc(100% - 125px);
+        }
+
+        input {
+            width: 100%;
+            padding: 0 calculateRem(14px);
+            border-radius: unset;
+        }
+
+        .CartCoupon-Button {
+            width: 125px;
+            min-width: unset;
+            margin: unset;
+            padding: unset;
+            border-radius: unset;
+            font-size: calculateRem(14px);
+        }
+    }
+
+    &-OrderTotals {
+        padding-top: calculateRem(25px);
+        padding-bottom: calculateRem(25px);
+
+        @include mobile {
+            padding: unset;
+        }
+    }
+
+    &-SummaryItem {
+        justify-content: space-between;
+        display: flex;
+        padding: 7px 0;
+        margin-bottom: 0;
+        font-size: calculateRem(14px);
+        color: #1B2125;
+
+        @include mobile {
+            display: none;
+        }
+
+        &:first-child {
+            padding-top: unset;
+        }
+
+        &:nth-last-child(2) {
+            padding-bottom: 25px;
+        }
+
+        &:last-child {
+            width: calc(100% + 100px);
+            transform: translateX(-50px);
+            margin-bottom: unset;
+            padding: 25px 50px 0;
+            border-top: 1px solid $border-color;
+            font-size: 1rem;
+            color: #282828;
+
+            .CheckoutOrderSummary-Text:last-child {
+                font-weight: 800;
+                color: $black;
+            }
+
+            @include mobile {
+                display: flex;
+                width: 100%;
+                transform: unset;
+                border-top: none;
+                padding-left: unset;
+                padding-right: unset;
+            }
+        }
+
+        &::before {
+            content: none;
+        }
+    }
+}

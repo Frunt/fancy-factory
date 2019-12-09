@@ -1,0 +1,39 @@
+.MyAccountAddressBook {
+    display: grid;
+    grid-gap: 2rem;
+    grid-template-columns: 1fr;
+
+    @include tablet {
+        display: block;
+    }
+
+    &-Button {
+        @include after-mobile {
+            position: absolute;
+            top: -55px;
+            right: 0;
+        }
+    }
+
+    button + button {
+        margin-left: 1rem;
+
+        @include mobile {
+            margin-top: 1rem;
+            margin-left: 0;
+        }
+    }
+    .MyAccountAddressPopup {
+        max-width: calculateRem(442px);
+
+        @include tablet {
+            max-width: unset;
+        }
+    }
+    .Button {
+        display: block;
+        margin: calculateRem(40px) auto 0;
+        padding-top: calculateRem(18px);
+        padding-bottom: calculateRem(18px);
+    }
+}

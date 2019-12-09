@@ -1,0 +1,83 @@
+.Popup {
+    opacity: 0;
+    pointer-events: none;
+    z-index: 200;
+    position: fixed;
+    background-color: rgba(0, 0, 0, .6);
+    left: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include mobile {
+        align-items: stretch;
+    }
+
+    &_isVisible {
+        pointer-events: all;
+        opacity: 1;
+        width: 100vw;
+        height: 100vh;
+
+        @include mobile {
+            height: calc(100% - var(--header-height) - 1px);
+        }
+    }
+
+    &-Content {
+        background-color: $white;
+        border-radius: 3px;
+        padding: calculateRem(46px);
+        min-width: 490px;
+        max-height: 80%;
+        overflow-y: auto;
+
+        @include tablet {
+            min-width: unset;
+            max-width: 95%;
+            max-height: 98%;
+            padding: calculateRem(15px) calculateRem(20px) calculateRem(30px);
+        }
+    }
+
+    & &-CloseBtn {
+        @include close-button;
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 25px;
+        width: 25px;
+        z-index: 5;
+
+        @include tablet {
+            top: 10px;
+            width: 18px;
+            height: 18px;
+        }
+
+        &::before,
+        &::after {
+            width: 1px;
+            height: 100%;
+            background-color: $dark;
+
+            @include tablet {
+                width: 3px;
+            }
+        }
+    }
+
+    .Loader-LoaderWrapper {
+        @include mobile {
+            position: fixed;
+        }
+    }
+}
+
+.scrollDisabled {
+    position: fixed;
+    margin-top: 0;
+    width: 100%;
+    overflow-y: scroll;
+}

@@ -1,0 +1,24 @@
+.CheckoutPayment {
+    padding: 0;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+
+    &::before {
+        content: none;
+    }
+
+    &:last-child {
+        margin-bottom: 1rem;
+    }
+
+    &-Button {
+        margin-right: 25px;
+        margin-bottom: 10px;
+        @include checkbox;
+        text-align: left;
+        font-size: calculateRem(16px);
+        font-weight: 500;
+        line-height: 1;
+    }
+}

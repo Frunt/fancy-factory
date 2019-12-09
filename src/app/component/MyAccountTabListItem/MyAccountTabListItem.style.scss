@@ -1,0 +1,62 @@
+.MyAccountTabListItem {
+    margin-bottom: 0;
+    transition: background-color .3s ease;
+
+    @include tablet {
+        border-bottom: 1px solid $border-color;
+    }
+
+    &::before {
+        content: none;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+        border-top: 1px solid $border-color;
+
+        @include tablet {
+            border-top: unset;
+        }
+
+        &:hover {
+            background: unset;
+
+            button {
+                color: $black;
+            }
+        }
+
+        button {
+            font-weight: 500;
+            color: $red;
+            transition: color .3s ease;
+        }
+    }
+
+    &_isActive {
+        background-color: $light-bg;
+
+        button {
+            font-weight: 600;
+            cursor: default;
+        }
+    }
+
+    &:hover {
+        background-color: $light-bg;
+    }
+
+    &-Button {
+        width: 100%;
+        padding: .8rem calculateRem(25px);
+        text-align: left;
+        font-size: 1rem;
+
+        @include tablet {
+            padding-left: calculateRem(15px);
+            padding-right: calculateRem(15px);
+            font-size: calculateRem(20px);
+            font-weight: 500;
+        }
+    }
+}

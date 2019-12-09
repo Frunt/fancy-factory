@@ -1,0 +1,237 @@
+.ReviewPopup {
+
+    & > .Button {
+        @include button-dark;
+        padding: 12px 30px;
+
+        @include mobile {
+            min-width: calculateRem(270px);
+            margin: calculateRem(50px) auto calculateRem(30px);
+            padding: 19px 20px;
+            font-size: calculateRem(14px);
+            letter-spacing: 1px;
+        }
+    }
+}
+
+.ProductReviewForm {
+    text-align: left;
+
+    &-Wrapper {
+        padding: 0 0 0 calculateRem(200px);
+
+        @include tablet {
+            padding-left: unset;
+        }
+    }
+
+    .terms {
+        display: flex;
+        .Field-Message {
+            position: absolute;
+            top: 100%;
+            width: 300px;
+        }
+        label {
+            margin-right: 15px;
+            cursor: pointer;
+        }
+        span {
+            font-size: 0.778rem;
+            a {
+                color: black;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .CartItem-PictureWrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: calculateRem(142px);
+
+        @include tablet {
+            position: unset;
+        }
+    }
+
+    &-Title {
+        margin: unset;
+        font-size: calculateRem(34px);
+        color: $yellow;
+
+        @include mobile {
+            font-size: calculateRem(28px);
+        }
+    }
+
+    &-RatingWrapper {
+        width: 100%;
+    }
+
+    &-Rating {
+        display: inline-block;
+        margin: 1rem 0 2rem;
+        padding-right: calculateRem(177px);
+
+        .Field-Message {
+            direction: ltr;
+            position: absolute;
+            top: 105%;
+            left: 0;
+            width: 240px;
+        }
+
+        @include tablet {
+            margin: calculateRem(10px) 0 calculateRem(20px);
+            padding-right: unset;
+        }
+
+        &Content {
+            direction: rtl;
+            white-space-collapse: discard; // alternative of `font-size: 0`
+            position: absolute;
+            top: 0;
+            right: 0;
+
+            @include tablet {
+                position: unset;
+                right: unset;
+            }
+        }
+
+        &Legend {
+            padding-bottom: unset;
+            padding-top: 4px;
+            font-size: calculateRem(16px);
+            font-weight: 500;
+
+            @include tablet {
+                margin-bottom: 8px;
+                padding-top: unset;
+            }
+        }
+
+        .ReviewStar {
+            display: inline-block;
+            margin: 0 3px;
+            padding: 0;
+            width: 26px;
+            height: 26px;
+            min-width: unset;
+            min-height: unset;
+            border: unset;
+            cursor: pointer;
+            line-height: 1;
+            background: url(../../../public/assets/images/icons/star.svg) no-repeat center;
+
+            &::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: url(../../../public/assets/images/icons/star.svg) no-repeat center;
+            }
+
+            &:checked,
+            &:hover,
+            &[checked],
+            &:checked ~ input::after,
+            &:hover ~ input::after,
+            &[checked] ~ input::after {
+                background: url(../../../public/assets/images/icons/star_selected.svg) no-repeat center;
+            }
+
+            &:focus {
+                border: unset;
+            }
+        }
+    }
+
+    &-Form {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        @include tablet {
+            margin-top: calculateRem(30px);
+        }
+
+        &Content {
+            width: 100%;
+
+            .Field:not(:first-child) {
+                margin-top: calculateRem(24px);
+            }
+        }
+
+        input,
+        textarea {
+            width: 100%;
+        }
+    }
+
+    &-Recommended {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        margin: calculateRem(28px) 0;
+
+        @include mobile {
+            margin: calculateRem(20px) 0;
+        }
+
+        &Title {
+            margin-right: 1rem;
+            font-size: calculateRem(16px);
+            font-weight: 500;
+
+            @include mobile {
+                width: 100%;
+                margin-right: unset;
+                margin-bottom: calculateRem(20px);
+            }
+        }
+
+        button {
+            @include button-dark;
+            padding: 10px 20px;
+            min-width: calculateRem(94px);
+
+            &:hover,
+            &.active {
+                border-color: $yellow;
+                background-color: $yellow;
+                color: $black;
+            }
+
+            &:not(:last-child) {
+                margin-right: calculateRem(10px);
+
+                @include mobile {
+                    margin-right: calculateRem(20px);
+                }
+            }
+        }
+    }
+
+    &-Buttons {
+        margin-top: calculateRem(40px);
+        margin-left: auto;
+        @include mobile {
+            margin-top: calculateRem(20px);
+            margin-right: auto;
+        }
+
+        .Button {
+            padding: calculateRem(18px) calculateRem(5px);
+
+            @include mobile {
+                width: 100%;
+            }
+        }
+    }
+}

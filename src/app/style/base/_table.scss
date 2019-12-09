@@ -1,0 +1,45 @@
+table {
+
+    thead {
+
+        tr {
+            border-top: 1px solid $border-color;
+            border-bottom: 1px solid rgba(198, 198, 198, .5);
+
+            &:hover {
+                background-color: unset;
+            }
+        }
+
+        td {
+            padding: 18px 28px;
+            color: #000;
+
+            @include mobile {
+                padding: 18px 10px;
+            }
+        }
+    }
+
+    tr {
+        transition: background-color .3s ease;
+        &:hover {
+            background-color: $yellow;
+            color: rgba(0, 0, 0, .87);
+        }
+    }
+
+    td,
+    th {
+        padding: 14px 28px;
+        border-bottom: 1px solid rgba(198, 198, 198, .5);
+        text-align: left;
+        font-size: calculateRem(14px);
+        font-weight: 500;
+        color: rgba(0, 0, 0, .65);
+
+        @include mobile {
+            padding: 14px 10px;
+        }
+    }
+}

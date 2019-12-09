@@ -1,0 +1,10 @@
+a {
+    --link-color: #{$pink};
+    --link-hover: #{$pink};
+
+    color: var(--link-color);
+
+    &:hover {
+        text-decoration: underline;
+    }
+}

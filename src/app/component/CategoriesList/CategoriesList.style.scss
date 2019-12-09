@@ -1,0 +1,161 @@
+.CategoriesList {
+    h4 {
+        height: calculateRem(56px);
+        background-color: #000;
+        font-size: calculateRem(20px);
+        line-height: calculateRem(24px);
+        letter-spacing: .065em;
+        text-transform: uppercase;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        font-weight: 600;
+        padding: {
+            left: calculateRem(67px);
+            right: calculateRem(15px);
+        };
+        position: relative;
+
+        &:before {
+            content: '';
+            display: block;
+            width: 28px;
+            height: 15px;
+            position: absolute;
+            top: 21px;
+            left: 25px;
+            border-top: 3px solid #fff;
+            border-bottom: 3px solid #fff;
+        }
+
+        &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            height: 3px;
+            width: 28px;
+            top: 27px;
+            left: 25px;
+            background-color: #fff;
+        }
+    }
+
+    li,
+    ul {
+        margin: 0;
+        position: relative;
+        &:last-child {
+            margin: 0;
+        }
+        &:empty {
+            display: none;
+        }
+    }
+
+    a {
+        color: #000;
+        text-decoration: none;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    &-Main {
+        border-left: 1px solid #C6C6C6;
+        border-right: 1px solid #C6C6C6;
+
+        & > .CategoriesList-Category  {
+
+            > a {
+                font-size: calculateRem(18px);
+                line-height: calculateRem(22px);
+                font-weight: 600;
+                display: flex;
+                padding: calculateRem(11px) calculateRem(40px) calculateRem(11px) calculateRem(24px);
+                align-items: center;
+                position: relative;
+                justify-content: space-between;
+                color: #000;
+                border-bottom: 1px solid #C6C6C6;
+
+
+
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+
+            & > .CategoriesList-MenuToggler {
+                top: 10px;
+            }
+
+            &_isSelected {
+                > a {
+                    background-color: #EEEEEE;
+                }
+            }
+
+            & > ul {
+                border-bottom: 1px solid #C6C6C6;
+                padding: calculateRem(15px) 0 calculateRem(15px) calculateRem(24px);
+
+                .CategoriesList-Category_isSelected > a {
+                    font-weight: 600;
+                }
+
+                & > li {
+                    padding-right: calculateRem(15px);
+                    margin: 0 0 calculateRem(15px);
+                }
+
+                & > li > a {
+                    font-weight: 400;
+                    font-size: calculateRem(18px);
+                    line-height: calculateRem(22px);
+                }
+
+                ul {
+                    padding: calculateRem(20px) 0 0 calculateRem(10px);
+
+                    a {
+                        font-size: calculateRem(16px);
+                        font-weight: 400;
+                    }
+
+                    li {
+                        padding: 0 0 calculateRem(15px);
+                    }
+                }
+            }
+        }
+    }
+
+    &-MenuToggler {
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: 0;
+        right: 10px;
+        cursor: pointer;
+        z-index: 1;
+
+        &:before {
+            content: '';
+            display: block;
+            width: 10px;
+            height: 10px;
+            border-bottom: 1px solid #898989;
+            border-right: 1px solid #898989;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: rotate(45deg);
+            margin: -7px 0 0 -5px;
+        }
+    }
+
+    &-Category_isSelected > .CategoriesList-MenuToggler:before {
+        transform: rotate(-135deg);
+        margin-top: -3px;
+    }
+}

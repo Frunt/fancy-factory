@@ -1,0 +1,134 @@
+.BlogPost {
+    padding: calculateRem(65px) 0;
+
+    @include mobile {
+        padding: calculateRem(28px) 0;
+    }
+
+    &-Wrapper {
+        &> .Image {
+            height: unset;
+            margin-bottom: calculateRem(56px);
+            padding-bottom: unset;
+        }
+        @include mobile {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    &-MainTitle {
+        text-transform: uppercase;
+        font-size: calculateRem(52px);
+        font-weight: 300;
+        letter-spacing: 1px;
+        color: $border-color;
+
+        @include mobile {
+            order: 1;
+            font-size: calculateRem(30px);
+        }
+    }
+
+    h1 {
+        margin: calculateRem(15px) 0 calculateRem(40px);
+        color: $dark;
+
+        @include mobile {
+            order: 3;
+            margin: calculateRem(10px) 0 calculateRem(20px);
+            line-height: 1.2;
+        }
+    }
+
+    .LanguageChanger {
+        margin: calculateRem(20px) 0;
+
+        @include mobile {
+            order: 2;
+            margin: calculateRem(15px) 0;
+        }
+    }
+
+    .Image {
+
+
+        @include mobile {
+            order: 4;
+            margin-bottom: calculateRem(20px);
+        }
+
+        &-Image {
+            position: static;
+        }
+    }
+
+    &-Content {
+
+        @include mobile {
+            order: 5;
+        }
+
+        & > * {
+            max-width: calculateRem(960px);
+        }
+
+        .Image {
+            max-width: unset;
+            padding-bottom: unset;
+        }
+
+        h2,
+        h3 {
+            font-size: calculateRem(32px);
+            font-weight: 600;
+            color: $dark;
+
+            @include mobile {
+                font-size: calculateRem(28px);
+            }
+        }
+
+        blockquote {
+            margin: calculateRem(40px) 0;
+            padding-top: unset;
+            border-left: 3px solid $yellow;
+            font-style: italic;
+            color: $black;
+
+            @include mobile {
+                margin: calculateRem(28px) 0;
+                border-width: 2px;
+            }
+        }
+    }
+
+    .button-prev {
+        margin: calculateRem(40px) 0;
+    }
+
+    &-Articles {
+        margin-top: 10%;
+
+        @include mobile {
+            order: 7;
+        }
+
+        h2 {
+            margin-top: unset;
+            color: $dark;
+        }
+
+        li {
+            margin-bottom: calculateRem(25px);
+
+            @include mobile {
+                margin-bottom: calculateRem(30px);
+            }
+        }
+
+        a {
+            font-weight: 500;
+        }
+    }
+}

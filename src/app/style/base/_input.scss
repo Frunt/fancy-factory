@@ -1,0 +1,80 @@
+:root {
+    --input-border-color: #C6C6C6;
+    --input-background-color: #fff;
+}
+
+input,
+textarea,
+select {
+    --input-color: #{$black};
+    border: 1px solid var(--input-border-color);
+    background-color: var(--input-background-color);
+    padding: 0 calculateRem(25px);
+    height: 40px;
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: calculateRem(2px);
+    font-size: calculateRem(16px);
+    width: 100%;
+
+    @include mobile {
+        padding: 0 calculateRem(14px);
+    }
+
+    &:focus {
+        border: 1px solid var(--input-border-color);
+    }
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #c4c4c4;
+    font-style: unset;
+    font-size: calculateRem(16px) !important;
+    transform: translateX(-5px);
+}
+
+select {
+    padding-right: calculateRem(30px);
+}
+
+textarea {
+    height: unset;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+input[type='number'] {
+    width: var(--input-type-number-width);
+    text-align: center;
+    font-size: 14px;
+    -moz-appearance: textfield;
+
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        appearance: none;
+        margin: 0;
+    }
+
+    ~ button {
+        position: absolute;
+        left: 0;
+        top: 0;
+        padding: 0;
+        margin: 0 8px;
+        height: 100%;
+        width: 13px;
+        font-size: 24px;
+        font-weight: 300;
+
+        &:disabled {
+            cursor: not-allowed;
+        }
+
+        &:last-child {
+            left: auto;
+            right: 0;
+        }
+    }
+}

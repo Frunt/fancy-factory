@@ -1,0 +1,254 @@
+/**
+ * ScandiPWA - Progressive Web App for Magento
+ *
+ * Copyright © Scandiweb, Inc. All rights reserved.
+ * See LICENSE for license details.
+ *
+ * @license OSL-3.0 (Open Software License ("OSL") v. 3.0)
+ * @package scandipwa/base-theme
+ * @link https://github.com/scandipwa/base-theme
+ */
+
+:root {
+    --cart-page-totals-background: #{$concrete};
+    --cart-page-divider-background: #d8d8d8;
+    --cart-page-promo-background: #fff;
+    --cart-page-table-head-background: #{$concrete};
+}
+
+.CartPage {
+    &-Wrapper {
+        @include desktop {
+            display: grid;
+            grid-template-columns: 1fr 30rem;
+            grid-column-gap: 4rem;
+        }
+
+        @include tablet {
+            grid-template-columns: 1fr;
+        }
+
+        @include mobile {
+            padding: 0;
+            border-top: 1px solid var(--overlay-divider-color);
+        }
+    }
+
+    &-Empty {
+        @include mobile {
+            padding: 1rem;
+            border-bottom: 1px solid var(--expandable-content-divider-color);
+        }
+    }
+
+    &-Summary {
+        background: var(--cart-page-totals-background);
+
+        @include after-mobile {
+            padding: 2rem;
+        }
+    }
+
+    &-SummaryHeading {
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+
+        @include mobile {
+            display: none;
+        }
+    }
+
+    &-CheckoutButton {
+        width: 100%;
+        display: block;
+        text-align: center;
+
+        @include after-mobile {
+            margin-top: 2rem;
+        }
+
+        span {
+            @include lock-button;
+        }
+    }
+
+    &-ContinueShopping {
+        display: block;
+        color: inherit;
+        text-transform: uppercase;
+        text-align: center;
+        margin-left: 0;
+        font-size: 1.1rem;
+        margin-top: 1.5rem;
+
+        @include mobile {
+            display: none;
+        }
+    }
+
+    &-Promo,
+    &-Total {
+        min-height: 4rem;
+    }
+
+    &-Promo {
+        padding: 2rem 1rem;
+        text-align: center;
+        background: var(--cart-page-promo-background);
+        order: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--cart-page-divider-background);
+
+        @include mobile {
+            padding: 1rem;
+            border-left: 0;
+            border-right: 0;
+        }
+
+        @include after-mobile {
+            margin-top: 2rem;
+        }
+
+        &Image {
+            width: 46px;
+            margin-right: .5rem;
+
+            @include mobile {
+                width: 36px;
+            }
+        }
+
+        strong {
+            margin: 0 5px;
+        }
+    }
+
+    &-PaymentMethods {
+        order: 4;
+        display: block;
+        max-width: 80%;
+        height: 50px;
+        margin: 1rem auto;
+
+        @include mobile {
+            margin: 3rem auto 1rem;
+            max-width: 60%;
+        }
+
+        @include tablet {
+            max-width: 330px;
+            height: 55px;
+        }
+    }
+
+    &-Total {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    &-TotalDetails {
+        border-bottom: 1px solid var(--cart-page-divider-background);
+        border-top: 1px solid var(--cart-page-divider-background);
+        padding: 1.5rem 0;
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-row-gap: 1.5rem;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 14px;
+        font-weight: 600;
+        margin-top: 1.5rem;
+
+        dd {
+            text-align: right;
+        }
+
+        @include mobile {
+            display: none;
+        }
+    }
+
+    &-TableHead {
+        display: grid;
+        grid-template-columns: 3fr 1fr 1fr;
+        border-bottom: 1px solid var(--cart-page-divider-background);
+        background-color: var(--cart-page-table-head-background);
+        text-transform: uppercase;
+        font-size: 12px;
+        font-weight: 600;
+        padding: .9rem 1rem;
+        margin-bottom: 0;
+
+        @include mobile {
+            display: none;
+        }
+
+        span {
+            text-align: center;
+
+            &:last-of-type {
+                text-align: right;
+            }
+
+            &:first-of-type {
+                text-align: left;
+            }
+        }
+    }
+
+    &-Discount {
+        @include after-mobile {
+            margin-top: 2rem;
+        }
+    }
+
+    &-Static {
+        @include mobile {
+            overflow: scroll;
+            max-height: calc(100% - 12rem);
+        }
+    }
+
+    &-Floating {
+        @include after-mobile {
+            display: flex;
+            flex-direction: column;
+            margin-top: 6.5rem;
+        }
+
+        @include tablet {
+            margin-top: 2rem;
+        }
+    }
+
+    &-Heading {
+        height: 3rem;
+        margin-top: 2rem;
+
+        @include mobile {
+            display: none;
+        }
+    }
+
+    .CartItem-Actions {
+        @include tablet {
+            flex-direction: column-reverse;
+            justify-content: center;
+        }
+    }
+
+    &-DiscountCoupon {
+        &::after {
+            content: ':';
+            font-weight: normal;
+        }
+    }
+}

@@ -1,0 +1,13 @@
+.ProductGalleryImage {
+    display: block;
+    height: 100%;
+
+    &.active {
+        border: 2px solid $pink;
+        cursor: default;
+    }
+
+    @include tablet {
+        display: none;
+    }
+}

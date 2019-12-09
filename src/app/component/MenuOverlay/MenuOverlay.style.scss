@@ -1,0 +1,492 @@
+/**
+ * ScandiPWA - Progressive Web App for Magento
+ *
+ * Copyright © Scandiweb, Inc. All rights reserved.
+ * See LICENSE for license details.
+ *
+ * @license OSL-3.0 (Open Software License ("OSL") v. 3.0)
+ * @package scandipwa/base-theme
+ * @link https://github.com/scandipwa/base-theme
+ */
+
+:root {
+    --menu-overlay-item-figure-background: #{$concrete};
+    --menu-desktop-subitem-arrow-color: #000;
+    --menu-overlay-item-banner-color: #fff;
+    --menu-overlay-additional-information-divider-color: #dedede;
+    --menu-overlay-item-hover-color: #f26323;
+}
+
+@mixin subcategory-visible {
+    pointer-events: all;
+    z-index: 10;
+    opacity: 1;
+}
+
+@mixin subcategory-desktop-visible {
+    transform: translateX(0);
+    z-index: 2;
+    opacity: 1;
+    pointer-events: all;
+    &::before {
+        left: 5px;
+    }
+}
+
+.MenuOverlay {
+
+    &_isVisible {
+        @include tablet {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    &-Wrapper {
+        display: grid;
+        grid-template-columns: 100% 100%;
+
+        transition: transform 200ms;
+        will-change: transform;
+        transform: translate3d(0, 0, 0);
+
+        &_isSubCategoryVisible {
+            transform: translate3d(-100%, 0, 0);
+        }
+    }
+
+    &-Menu {
+
+        li:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &-Banner {
+        height: 120px;
+        display: flex;
+        justify-content: center;
+        margin-bottom: .8rem;
+        width: 100%;
+
+        picture {
+            padding-bottom: 0;
+            height: 100%;
+        }
+
+        img {
+            object-fit: cover;
+        }
+
+        figcaption {
+            position: absolute;
+            top: 0;
+            padding: 2rem 1rem;
+            text-align: center;
+            font-size: 1.8rem;
+            color: white;
+            line-height: 1.3;
+        }
+
+        strong {
+            display: block;
+        }
+    }
+
+    &-ItemList {
+        background-color: #fff;
+        position: static;
+
+        &_type {
+
+            &_main {
+                border: 1px solid #C6C6C6;
+                border-radius: 2px;
+                padding: 0 0 calculateRem(24px);
+
+                @include tablet {
+                    padding: 0;
+                    border: none;
+
+                    & > .MenuOverlay-Item {
+                        font-weight: 600;
+                        font-size: calculateRem(20px);
+                        line-height: calculateRem(24px);
+                        border-bottom: 1px solid #C6C6C6;
+                    }
+
+                    & > .MenuOverlay-Item_isActive {
+                        background: none;
+
+                        & > .MenuOverlay-Link {
+                            background-color: #eee;
+                        }
+
+                        & > .MenuOverlay-arrow {
+                            background-color: #eee;
+                        }
+                    }
+                }
+            }
+
+            &_trending {
+                column-gap: 10px;
+
+                @include after-mobile {
+                    @media (max-height: 940px) {
+                        display: none;
+                    }
+                }
+
+                .MenuOverlay-Item {
+                    margin: 0;
+                }
+            }
+
+            &_subcategory {
+                background-color: var(--overlay-background);
+                opacity: 0;
+                position: absolute;
+                padding: calculateRem(10px) 1px 1px;
+                box-shadow: inset 0 0 0 1px #C6C6C6;
+                border-radius: 2px;
+                top: 0;
+                left: 100%;
+                width: 100%;
+                transition-property: opacity, transform;
+                transition-duration: 200ms;
+                will-change: opacity, transform;
+                transform: translateX(-20%);
+                min-height: 100%;
+                pointer-events: none;
+
+                @include tablet {
+                    padding: 0;
+                    position: relative;
+                    left: 0;
+                    width: auto;
+                    box-shadow: none;
+                    border-radius: 0;
+                    flex: 0 0 100%;
+                    max-height: 0;
+                    opacity: 1;
+                    transform: none;
+                    min-height: 0;
+                    overflow: hidden;
+                    transition: max-height .3s ease;
+                }
+
+                .MenuOverlay-Item {
+                    @include tablet {
+                        font-size: calculateRem(18px);
+                        line-height: calculateRem(22px);
+                        font-weight: 500;
+                        padding-left: 10px;
+                    }
+                }
+
+                .MenuOverlay-ItemList_type_subcategory .MenuOverlay-Item {
+                    @include tablet {
+                        font-size: calculateRem(16px);
+                        font-weight: 400;
+                    }
+                }
+            }
+        }
+
+        &_isVisible {
+            @include subcategory-desktop-visible;
+            @include tablet {
+                max-height: 1000px;
+            }
+        }
+    }
+
+    &-ItemListHeading {
+        grid-column: span 2;
+        text-align: center;
+        margin-top: 4rem;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+        font-size: 2rem;
+        font-weight: bold;
+    }
+
+    &-Item {
+        margin: 0;
+        font-size: calculateRem(18px);
+        line-height: calculateRem(22px);
+        font-weight: 500;
+        display: flex;
+        padding: calculateRem(9px) calculateRem(24px) calculateRem(9px) calculateRem(24px);
+        align-items: center;
+        position: static;
+        justify-content: space-between;
+
+        @include tablet {
+            font-size: calculateRem(14px);
+            line-height: calculateRem(20px);
+            flex-wrap: wrap;
+            padding: 0;
+            align-items: stretch;
+        }
+
+        &_isActive {
+            background-color: #EEEEEE;
+
+            @include tablet {
+                background: none;
+            }
+
+            & > .MenuOverlay-arrow {
+                @include tablet {
+                    &:before {
+                        transform: rotate(-135deg);
+                        margin-top: -3px;
+                    }
+                }
+            }
+        }
+    }
+
+    &-arrow{
+        width: 20px;
+        height: 20px;
+        position: relative;
+        cursor: pointer;
+
+        @include tablet {
+            width: 30px;
+            height: auto;
+            flex: 0 0 30px;
+        }
+
+        &:before {
+            content: '';
+            display: block;
+            width: 10px;
+            height: 10px;
+            border-bottom: 1px solid #898989;
+            border-right: 1px solid #898989;
+            position: absolute;
+            top: 50%;
+            right: 50%;
+            transform: rotate(-45deg);
+            margin: -5px 0 0 -5px;
+
+            @include tablet {
+                transform: rotate(45deg);
+            }
+        }
+    }
+
+    &-ItemCaption {
+        font-size: 1.5rem;
+        line-height: 1;
+        font-weight: bold;
+        text-transform: uppercase;
+        text-align: left;
+
+        &_type {
+            &_trending {
+                padding-top: .8rem;
+                justify-self: center;
+            }
+
+            &_subcategory {
+                font-size: 1rem;
+                font-weight: normal;
+                text-transform: none;
+                padding-left: 1.5rem;
+            }
+
+            &_banner {
+                position: absolute;
+                justify-self: center;
+                color: var(--menu-overlay-item-banner-color);
+            }
+        }
+    }
+
+    &-ItemFigure {
+        display: grid;
+        align-items: center;
+
+        &:hover {
+            @include after-mobile {
+                --menu-overlay-item-banner-color: var(--menu-overlay-item-hover-color);
+
+                color: var(--menu-overlay-item-hover-color);
+            }
+
+            + .MenuOverlay-ItemList {
+                @include after-mobile {
+                    @include subcategory-visible;
+                    @include subcategory-desktop-visible;
+                }
+            }
+        }
+
+        &_type {
+            &_main {
+                grid-auto-flow: column;
+                grid-template-columns: 50% 50%;
+                height: 100px;
+                padding-left: 30px;
+                background-color: var(--menu-overlay-item-figure-background);
+
+                @include after-mobile {
+                    z-index: 20;
+                }
+            }
+
+            &_subcategory {
+                display: flex;
+            }
+
+            &_banner {
+                margin-top: 1rem;
+            }
+        }
+    }
+
+    &-Image_type {
+        &_main {
+            grid-column: 2;
+            height: 100%;
+            padding-bottom: 0;
+            justify-self: end;
+        }
+
+        &_banner {
+            padding-bottom: 25%;
+        }
+
+        &_subcategory {
+            width: 3.2rem;
+            height: 3.2rem;
+            padding-bottom: 0;
+            border-radius: 50%;
+        }
+
+        &_trending {
+            padding-bottom: 100%;
+
+            @include after-mobile {
+                padding-bottom: 70%;
+            }
+
+            img {
+                object-fit: cover;
+            }
+        }
+    }
+
+    &-HorizontalRule {
+        background-color: var(--menu-overlay-horizontal-rule-background);
+        height: 1px;
+        width: 100%;
+        padding: 0 .8rem 0 .8rem;
+        margin-top: 1.5rem;
+    }
+
+    &-PageLink {
+        text-align: center;
+        margin: 1.5rem 0;
+
+        &:hover {
+            @include after-mobile {
+                color: var(--menu-overlay-item-hover-color);
+            }
+        }
+    }
+
+    &-Social {
+        display: flex;
+        justify-content: center;
+        margin-top: 2.5rem;
+
+        h3 {
+            position: absolute;
+            overflow: hidden;
+            clip: rect(0 0 0 0);
+            height: 1px;
+            width: 1px;
+            margin: -1px;
+            padding: 0;
+            border: 0;
+        }
+
+        ul {
+            display: grid;
+            grid-auto-flow: column;
+            width: 14rem;
+            justify-items: center;
+        }
+
+        li {
+            width: 1.9rem;
+        }
+    }
+
+    &-AdditionalInformation {
+        border-top: 1px solid var(--menu-overlay-additional-information-divider-color);
+        margin-top: 2rem;
+    }
+
+    &-Link {
+        color: inherit;
+
+        &:hover {
+            text-decoration: none;
+        }
+
+        @include tablet {
+            display: block;
+            flex: 1 1 auto;
+            padding: calculateRem(9px) calculateRem(20px);
+        }
+    }
+
+    &-Heading {
+        height: calculateRem(56px);
+        background-color: #000;
+        font-size: calculateRem(20px);
+        line-height: calculateRem(24px);
+        letter-spacing: .065em;
+        text-transform: uppercase;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        font-weight: 600;
+        padding: {
+            left: calculateRem(67px);
+            right: calculateRem(15px);
+        };
+        position: relative;
+
+        &:before {
+            content: '';
+            display: block;
+            width: 28px;
+            height: 15px;
+            position: absolute;
+            top: 21px;
+            left: 25px;
+            border-top: 3px solid #fff;
+            border-bottom: 3px solid #fff;
+        }
+
+        &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            height: 3px;
+            width: 28px;
+            top: 27px;
+            left: 25px;
+            background-color: #fff;
+        }
+    }
+}

@@ -1,0 +1,7 @@
+.MyAccountMyOrders {
+  max-width: calculateRem(820px);
+
+  @include tablet {
+    max-width: unset;
+  }
+}

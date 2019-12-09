@@ -1,0 +1,82 @@
+.TopScreen {
+  max-width: var(--content-wrapper-lg-width);
+  padding: 0 15px;
+  display: grid;
+  grid-template-columns: 25% 75%;
+  align-items: stretch;
+  flex-direction: row;
+  margin: {
+    left: auto;
+    right: auto;
+  };
+
+  @include tablet {
+    display: block;
+  }
+
+  .MenuOverlay {
+    flex: 1 1 25%;
+    position: relative;
+    z-index: 2;
+  }
+
+  .SliderWidget {
+    flex: 1 1 75%;
+    position: relative;
+    z-index: 1;
+    margin-left: 30px;
+
+    @include tablet {
+      height: 500px;
+      margin: 0 -15px;
+    }
+
+    @include mobile {
+      height: 360px;
+    }
+  }
+}
+.BrandsSlider {
+  padding: 3% 0 7%;
+
+  @include mobile {
+    padding: calculateRem(38px) 0;
+  }
+
+  .slick-arrow {
+    border-color: #898989;
+
+    @include mobile {
+      display: none!important;
+    }
+  }
+
+  &-Wrapper {
+    max-width: var(--content-wrapper-lg-width);
+  }
+
+  h2 {
+    margin: 0 0 4%;
+    text-align: center;
+
+    @include mobile {
+      font-size: calculateRem(22px);
+    }
+  }
+
+  .SliderWidget-Figure {
+    padding: 0 23%;
+
+    @include tablet {
+      padding: 0 18%;
+    }
+
+    @include mobile {
+      padding: 0 10%;
+    }
+  }
+
+  .SliderWidget-Figcaption {
+    display: none;
+  }
+}

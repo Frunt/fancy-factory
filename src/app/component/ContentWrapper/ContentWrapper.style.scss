@@ -1,0 +1,16 @@
+:root {
+    --content-wrapper-width: 1375px;
+    --content-wrapper-lg-width: 1650px;
+}
+
+.ContentWrapper {
+    max-width: var(--content-wrapper-width);
+    padding: {
+        left: 20px;
+        right: 20px;
+    };
+    margin: {
+        left: auto;
+        right: auto;
+    };
+}

@@ -1,0 +1,289 @@
+/**
+ * ScandiPWA - Progressive Web App for Magento
+ *
+ * Copyright © Scandiweb, Inc. All rights reserved.
+ * See LICENSE for license details.
+ *
+ * @license OSL-3.0 (Open Software License ("OSL") v. 3.0)
+ * @package scandipwa/base-theme
+ * @link https://github.com/scandipwa/base-theme
+ */
+
+:root {
+    --product-actions-option-border-color: #979797;
+    --product-actions-selected-option-border-color: #f26323;
+    --product-brand-heading-color: #adadad;
+
+    @include after-mobile {
+        --product-actions-option-border-color: #adadad;
+    }
+}
+
+.ProductActions {
+    --swatch-type-size: 40px;
+
+    @include after-mobile {
+        --swatch-type-size: 35px;
+
+        display: flex;
+        flex-flow: row wrap;
+        height: max-content;
+    }
+
+    @include mobile {
+        display: grid;
+        align-items: center;
+
+        &-Colors,
+        &-Price {
+            margin: 1.5rem 1rem 0 1rem;
+        }
+    }
+
+    &-Colors {
+        grid-column-gap: 1.5rem;
+        grid-template-columns: repeat(auto-fit, minmax(min-content, 0));
+        flex-basis: 100%;
+        margin-bottom: 2rem;
+
+        @include after-mobile {
+            display: flex;
+            flex-wrap: wrap;
+            order: 11;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding: .5rem calc(1rem - 5px);
+        }
+    }
+
+    &-ShortDescription {
+        @include mobile {
+            margin: 0 5px;
+        }
+    }
+
+    &-Color {
+        @include after-mobile {
+            margin: 6px;
+        }
+    }
+
+    &-Price {
+        order: 21;
+        font-size: 25px;
+        align-items: center;
+        justify-content: center;
+
+        &:last-of-type {
+            @include after-mobile {
+                padding: 10px 15px 1rem 5px;
+            }
+        }
+    }
+
+    &-Sku::after {
+        content: '•';
+        margin: 0 5px;
+    }
+
+    &-Title {
+        font-size: 2rem;
+        font-weight: bold;
+        line-height: 3rem;
+    }
+
+    &-Brand {
+        font-size: 1.2rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: var(--product-actions-option-border-color);
+    }
+
+    &-AddToCart {
+        margin-left: 10px;
+
+        @include mobile {
+            margin: 1.8rem 1rem 1rem;
+            width: calc(100% - 2rem);
+        }
+    }
+
+    &-AddToCartWrapper {
+        order: 22;
+
+        @include after-mobile {
+            margin-right: 1rem;
+        }
+    }
+
+    &-AdditionalButtons {
+        order: 25;
+        margin: 1rem 0 1.5rem;
+        flex-basis: 100%;
+
+        @include mobile {
+            margin-top: 0;
+        }
+
+        :first-child {
+            margin-top: 0;
+        }
+
+        > * {
+            margin-right: 1rem;
+
+            @include mobile {
+                margin: 1rem 1rem 0 1rem;
+                width: calc(100% - 2rem);
+                text-align: center;
+            }
+        }
+    }
+
+    &-Attributes {
+        @include mobile {
+            --product-configurable-attributes-content-padding: .5rem;
+            // --product-configurable-attributes-direction: center;
+            --option-margin: 0 .5rem 1rem;
+
+            border-top: 1px solid var(--expandable-content-divider-color);
+        }
+
+        @include after-mobile {
+            --product-configurable-attributes-margin: 0 2rem 0 0;
+            --option-margin: 0 1rem 1rem 0;
+
+            order: 10;
+            display: flex;
+            flex-wrap: wrap;
+            flex-basis: 100%;
+            padding: 1.5rem calc(1rem - 5px);
+        }
+    }
+
+    &-Section {
+        padding: 1.5rem calc(1rem - 5px);
+        display: flex;
+        flex-wrap: wrap;
+        flex-basis: 100%;
+
+        @include mobile {
+            border-top: 1px solid var(--expandable-content-divider-color);
+        }
+
+        @include after-mobile {
+            order: 10;
+        }
+
+        &_type {
+            &_related {
+                border-top: 0;
+                padding: 1.5rem 0;
+            }
+
+            &_short {
+                @include mobile {
+                    border-top: 0;
+                    border-bottom: 1px solid var(--expandable-content-divider-color);
+                }
+
+                @include after-mobile {
+                    order: 3;
+                    flex-basis: 100%;
+                }
+            }
+
+            &_sku {
+                order: 2;
+                flex-basis: 100%;
+                font-size: 1rem;
+                font-weight: bold;
+                color: var(--product-actions-option-border-color);
+                padding-top: 0;
+                padding-bottom: 0;
+
+                @include mobile {
+                    display: none;
+                }
+            }
+
+            &_name {
+                order: 1;
+                flex-basis: 100%;
+                flex-direction: column;
+                text-align: left;
+                padding-bottom: 0;
+
+                @include mobile {
+                    display: none;
+                }
+            }
+
+            &_grouped {
+                @include after-mobile {
+                    margin-bottom: 1.5rem;
+                }
+            }
+        }
+    }
+
+    &-SectionHeading {
+        width: 100%;
+        text-transform: uppercase;
+        margin: 0 5px 1rem;
+        font-weight: 600;
+        line-height: 1;
+
+        &_type {
+            &_related {
+                margin-left: 1rem;
+            }
+
+            &_brand {
+                @include after-mobile {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    &-SectionContent {
+        margin: 0 5px;
+
+        &_type {
+            &_short {
+                &-name {
+                    @include mobile {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+
+    &-PlaceholderOption {
+        margin: 5px;
+        padding: 0 1rem;
+    }
+
+    &-TextOption {
+        margin: 6px;
+        padding: 0 12px;
+        border: 1px solid var(--product-actions-option-border-color);
+
+        &_isSelected {
+            --product-actions-option-border-color: var(--product-actions-selected-option-border-color);
+        }
+    }
+
+    &-Qty {
+        order: 23;
+        margin-top: 0;
+        display: inline-block;
+        vertical-align: middle;
+
+        @include mobile {
+            display: none;
+        }
+    }
+}
