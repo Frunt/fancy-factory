@@ -74,7 +74,7 @@
     "copy-webpack-plugin": "latest",
     "css-hot-loader": "latest",
     "css-loader": "latest",
-    "eslint": "^6.6.0",
+    "eslint": "^9.39.1",
     "eslint-config-airbnb": "latest",
     "eslint-config-airbnb-base": "latest",
     "eslint-loader": "latest",
